@@ -27,12 +27,12 @@ services:
 
   # Your App Container 1
   web_app_1:
-    image: nginxdemos/hello:plain
+    image: nginx:alpine
     restart: always
 
   # Your App Container 2
   web_app_2:
-    image: nginxdemos/hello:plain
+    image: nginx:alpine
     restart: always
 
 volumes:
