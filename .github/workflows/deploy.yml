@@ -1,0 +1,42 @@
+name: Deploy Multi-App to VM
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout code
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # 2. Copy files to VM
+      - name: Copy project to VM
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.VM_HOST }}
+          username: ${{ secrets.VM_USER }}
+          key: ${{ secrets.VM_SSH_KEY }}
+          source: "."
+          target: "/opt/multiapp"
+
+      # 3. SSH into VM and restart containers
+      - name: Deploy on VM
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VM_HOST }}
+          username: ${{ secrets.VM_USER }}
+          key: ${{ secrets.VM_SSH_KEY }}
+          script: |
+            cd /opt/multiapp
+
+            echo "Stopping old containers..."
+            docker compose down
+
+            echo "Starting new deployment..."
+            docker compose up -d --build
+
+            echo "Deployment complete 🚀"
