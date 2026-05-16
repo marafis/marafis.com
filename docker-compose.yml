@@ -6,26 +6,11 @@ services:
     restart: always
     ports:
       - "80:80"
-      - "443:443"
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
-      - certbot_certs:/etc/letsencrypt
-      - certbot_challenge:/var/www/certbot
     depends_on:
       - web_app_1
       - web_app_2
-
-  certbot:
-    image: certbot/certbot:latest
-    restart: always
-    volumes:
-      - certbot_certs:/etc/letsencrypt
-      - certbot_challenge:/var/www/certbot
-    command: >
-      sh -c "while :; do
-      certbot renew;
-      sleep 12h;
-      done"
 
   web_app_1:
     image: nginx:alpine
@@ -38,7 +23,3 @@ services:
     restart: always
     volumes:
       - ./web_app_2:/usr/share/nginx/html:ro
-
-volumes:
-  certbot_certs:
-  certbot_challenge:
