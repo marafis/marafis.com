@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  # The Load Balancer / Reverse Proxy
+  load_balancer:
+    image: caddy:latest
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - web_app_1
+      - web_app_2
+
+  # Your App Container 1
+  web_app_1:
+    image: nginxdemos/hello:plain # A simple placeholder image for testing
+    restart: always
+
+  # Your App Container 2
+  web_app_2:
+    image: nginxdemos/hello:plain
+    restart: always
+
+volumes:
+  caddy_data:
+  caddy_config:
