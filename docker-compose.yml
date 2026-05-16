@@ -1,10 +1,8 @@
 version: '3.8'
 
 services:
-  # Nginx Load Balancer / Reverse Proxy
   load_balancer:
     image: nginx:alpine
-    container_name: load_balancer
     restart: always
     ports:
       - "80:80"
@@ -17,37 +15,29 @@ services:
       - web_app_1
       - web_app_2
 
-  # Certbot for Let's Encrypt SSL
   certbot:
-    image: certbot/certbot
-    container_name: certbot
+    image: certbot/certbot:latest
+    restart: always
     volumes:
       - certbot_certs:/etc/letsencrypt
       - certbot_challenge:/var/www/certbot
-    entrypoint: >
-      /bin/sh -c '
-      trap exit TERM;
-      while :; do
-        certbot renew;
-        sleep 12h & wait $${!};
-      done;
-      '
+    command: >
+      sh -c "while :; do
+      certbot renew;
+      sleep 12h;
+      done"
 
-  # Static HTML App 1
   web_app_1:
     image: nginx:alpine
-    container_name: web_app_1
     restart: always
     volumes:
-      - ./web_app_1/index.html:/usr/share/nginx/html/index.html:ro
+      - ./web_app_1:/usr/share/nginx/html:ro
 
-  # Static HTML App 2
   web_app_2:
     image: nginx:alpine
-    container_name: web_app_2
     restart: always
     volumes:
-      - ./web_app_2/index.html:/usr/share/nginx/html/index.html:ro
+      - ./web_app_2:/usr/share/nginx/html:ro
 
 volumes:
   certbot_certs:
