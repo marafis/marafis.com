@@ -2,7 +2,7 @@ name: Deploy Multi-App to VM
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "master" ]
 
 jobs:
   deploy:
