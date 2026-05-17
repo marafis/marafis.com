@@ -1,0 +1,20 @@
+<nav [class.scrolled]="scroll.scrolled$ | async">
+  <a routerLink="/" class="nav-logo">
+    <span class="logo-mark">MARAFIS</span>
+    <span class="logo-sub">Technology Consultancy</span>
+  </a>
+
+  <ul class="nav-links">
+    @for (link of content.navLinks; track link.fragment) {
+      <li>
+        <a [routerLink]="['/']" [fragment]="link.fragment">
+          {{ link.label }}
+        </a>
+      </li>
+    }
+  </ul>
+
+  <a [routerLink]="['/']" fragment="cta" class="nav-cta">
+    Engage Us
+  </a>
+</nav>

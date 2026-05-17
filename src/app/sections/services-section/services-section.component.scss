@@ -1,0 +1,114 @@
+@use 'variables' as *;
+
+section {
+  padding: $spacing-4xl 0;
+  background: $black-2;
+}
+
+.services-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: end;
+  margin-bottom: 5rem;
+
+  @include responsive($bp-laptop) {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+// ── GRID ─────────────────────────────────────────────────────────────
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5px;
+  background: $gold-line;
+
+  @include responsive($bp-laptop) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include responsive($bp-mobile) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// ── CARD ─────────────────────────────────────────────────────────────
+.service-card {
+  background: $black-2;
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: background $transition-base;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 0.5px;
+    background: linear-gradient(90deg, transparent, $gold, transparent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform $transition-slow;
+  }
+
+  &:hover {
+    background: rgba(201, 168, 76, 0.04);
+
+    &::before { transform: scaleX(1); }
+
+    .service-arrow {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
+
+.service-num {
+  font-family: $font-serif;
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  color: $gold;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.service-icon {
+  width: 42px;
+  height: 42px;
+  margin-bottom: 1.5rem;
+  opacity: 0.85;
+}
+
+.service-name {
+  font-family: $font-serif;
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: $white;
+  margin-bottom: 0.75rem;
+  line-height: 1.25;
+}
+
+.service-desc {
+  font-family: $font-sans;
+  font-size: 0.82rem;
+  font-weight: 300;
+  color: $white-dim;
+  line-height: 1.85;
+}
+
+.service-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: $gold;
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity $transition-base, transform $transition-base;
+}

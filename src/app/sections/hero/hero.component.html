@@ -1,0 +1,56 @@
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+
+  <!-- Corner ornaments -->
+  <svg class="corner corner--tl" viewBox="0 0 60 60" fill="none">
+    <path d="M0 60 V0 H60" stroke="#C9A84C" stroke-width="0.5"/>
+    <path d="M0 40 V20 H20" stroke="#C9A84C" stroke-width="0.5" opacity="0.5"/>
+    <rect x="0" y="0" width="4" height="4" fill="#C9A84C"/>
+  </svg>
+  <svg class="corner corner--tr" viewBox="0 0 60 60" fill="none">
+    <path d="M60 60 V0 H0" stroke="#C9A84C" stroke-width="0.5"/>
+    <path d="M60 40 V20 H40" stroke="#C9A84C" stroke-width="0.5" opacity="0.5"/>
+    <rect x="56" y="0" width="4" height="4" fill="#C9A84C"/>
+  </svg>
+  <svg class="corner corner--bl" viewBox="0 0 60 60" fill="none">
+    <path d="M0 0 V60 H60" stroke="#C9A84C" stroke-width="0.5"/>
+    <path d="M0 20 V40 H20" stroke="#C9A84C" stroke-width="0.5" opacity="0.5"/>
+    <rect x="0" y="56" width="4" height="4" fill="#C9A84C"/>
+  </svg>
+  <svg class="corner corner--br" viewBox="0 0 60 60" fill="none">
+    <path d="M60 0 V60 H0" stroke="#C9A84C" stroke-width="0.5"/>
+    <path d="M60 20 V40 H40" stroke="#C9A84C" stroke-width="0.5" opacity="0.5"/>
+    <rect x="56" y="56" width="4" height="4" fill="#C9A84C"/>
+  </svg>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">Premium Technology Consultancy</div>
+
+    <h1 class="hero-headline">
+      Architecting Systems<br>
+      Built to <em>Endure</em>
+    </h1>
+
+    <div class="hero-divider">
+      <div class="hero-divider-line"></div>
+      <div class="hero-divider-diamond"></div>
+      <div class="hero-divider-line"></div>
+    </div>
+
+    <p class="hero-sub">
+      We partner with forward-thinking enterprises to design, build, and evolve scalable
+      technology platforms - from cloud-native architecture to AI-enabled transformation.
+    </p>
+
+    <div class="hero-actions">
+      <a [routerLink]="['/']" fragment="services" class="btn-primary">Explore Services</a>
+      <a [routerLink]="['/']" fragment="cta"      class="btn-secondary">Start a Conversation</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll" aria-hidden="true">
+    <span class="scroll-text">Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>

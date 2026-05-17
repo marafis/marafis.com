@@ -1,0 +1,101 @@
+@use 'variables' as *;
+
+section {
+  background: $black-2;
+  border-top: 0.5px solid $gold-line;
+  border-bottom: 0.5px solid $gold-line;
+}
+
+.cta-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+  padding: 6rem 0;
+
+  @include responsive($bp-laptop) {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 4rem 0;
+  }
+}
+
+// ── LEFT ─────────────────────────────────────────────────────────────
+.cta-ornament {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 2rem;
+  opacity: 0.6;
+}
+
+.cta-title {
+  font-family: $font-serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 300;
+  line-height: 1.2;
+  color: $white;
+
+  em {
+    font-style: italic;
+    color: $gold-light;
+  }
+}
+
+// ── RIGHT ────────────────────────────────────────────────────────────
+.cta-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.cta-detail {
+  font-family: $font-sans;
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: $white-dim;
+  line-height: 1.8;
+}
+
+// ── CONTACT ITEMS ────────────────────────────────────────────────────
+.contact-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: $font-sans;
+  font-size: 0.82rem;
+  color: $white-dim;
+  text-decoration: none;
+  transition: color $transition-base;
+
+  &:hover {
+    color: $gold;
+
+    .contact-item-icon { border-color: $gold; }
+  }
+}
+
+.contact-item-icon {
+  width: 30px;
+  height: 30px;
+  border: 0.5px solid $gold-line;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: border-color $transition-base;
+}
+
+// ── ACTIONS ──────────────────────────────────────────────────────────
+.cta-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}

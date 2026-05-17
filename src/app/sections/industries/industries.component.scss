@@ -1,0 +1,107 @@
+@use 'variables' as *;
+
+section {
+  padding: $spacing-4xl 0;
+  background: $black;
+}
+
+// ── LAYOUT ───────────────────────────────────────────────────────────
+.industries-layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 6rem;
+  align-items: start;
+
+  @include responsive($bp-laptop) {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+// ── INDUSTRY LIST ────────────────────────────────────────────────────
+.industry-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 2.5rem;
+}
+
+.industry-item {
+  padding: 1.25rem 0;
+  border-bottom: 0.5px solid $gold-line;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: $font-serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: $white-dim;
+  position: relative;
+  transition: color $transition-base, padding-left $transition-base;
+
+  &::before {
+    content: '';
+    width: 0;
+    height: 0.5px;
+    background: $gold;
+    transition: width 0.35s;
+    flex-shrink: 0;
+  }
+
+  &:hover {
+    color: $white;
+    padding-left: 0.5rem;
+
+    &::before { width: 20px; }
+  }
+}
+
+// ── RIGHT PANEL ──────────────────────────────────────────────────────
+.industries-right {
+  padding-top: 0.5rem;
+}
+
+.industries-quote {
+  font-family: $font-serif;
+  font-size: 1.7rem;
+  font-weight: 300;
+  font-style: italic;
+  color: $white;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+
+  &::before {
+    content: '\201C';
+    color: $gold;
+    font-size: 2.5rem;
+    line-height: 0;
+    vertical-align: -0.35em;
+    margin-right: 0.25rem;
+  }
+}
+
+// ── TECH TAGS ────────────────────────────────────────────────────────
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 2.5rem;
+}
+
+.tech-tag {
+  font-family: $font-sans;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: $white-dim;
+  border: 0.5px solid $gold-line;
+  padding: 0.4rem 0.9rem;
+  transition: border-color $transition-base, color $transition-base;
+  cursor: default;
+
+  &:hover {
+    border-color: $gold;
+    color: $gold;
+  }
+}

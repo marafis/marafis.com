@@ -1,0 +1,36 @@
+@use 'variables' as *;
+
+.marquee-section {
+  border-top: 0.5px solid $gold-line;
+  border-bottom: 0.5px solid $gold-line;
+  padding: 1rem 0;
+  overflow: hidden;
+  background: $black-2;
+}
+
+.marquee-track {
+  display: flex;
+  gap: 0;
+  animation: marqueeScroll 28s linear infinite;
+  width: max-content;
+}
+
+.marquee-item {
+  font-family: $font-sans;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: $white-dim;
+  padding: 0 2.5rem;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+
+  &::after {
+    content: '✦';
+    color: $gold;
+    font-size: 0.5rem;
+  }
+}

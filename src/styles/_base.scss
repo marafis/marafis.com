@@ -1,0 +1,142 @@
+// ── RESET & BASE ────────────────────────────────────────────────────
+@use 'variables' as *;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background: $black;
+  color: $white;
+  font-family: $font-sans;
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+  cursor: default;
+}
+
+// ── SCROLLBAR ───────────────────────────────────────────────────────
+::-webkit-scrollbar        { width: 4px; }
+::-webkit-scrollbar-track  { background: $black-2; }
+::-webkit-scrollbar-thumb  { background: $gold-deep; border-radius: 2px; }
+
+// ── SELECTION ───────────────────────────────────────────────────────
+::selection {
+  background: $gold;
+  color: $black;
+}
+
+// ── LINKS ───────────────────────────────────────────────────────────
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+// ── IMAGES ──────────────────────────────────────────────────────────
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+// ── UTILITY CLASSES ─────────────────────────────────────────────────
+.container {
+  @include container;
+}
+
+.section-label {
+  @include label-text;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: $spacing-md;
+
+  &::before {
+    content: '';
+    width: 30px;
+    height: 0.5px;
+    background: $gold;
+  }
+}
+
+.section-title {
+  font-family: $font-serif;
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 300;
+  line-height: 1.1;
+  color: $white;
+  margin-bottom: $spacing-md;
+
+  em {
+    font-style: italic;
+    color: $gold-light;
+  }
+}
+
+.section-body {
+  @include body-text;
+  max-width: 560px;
+}
+
+// ── BUTTONS ─────────────────────────────────────────────────────────
+.btn-primary {
+  font-family: $font-sans;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: $black;
+  background: $gold;
+  padding: 1rem 2.5rem;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  transition: background $transition-base, transform $transition-fast, box-shadow $transition-base;
+  cursor: pointer;
+  border: none;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.25) 50%, transparent 60%);
+    transform: translateX(-100%);
+    transition: transform $transition-slow;
+  }
+
+  &:hover {
+    background: $gold-light;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(201, 168, 76, 0.3);
+
+    &::after { transform: translateX(100%); }
+  }
+}
+
+.btn-secondary {
+  font-family: $font-sans;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: $gold;
+  border: 0.5px solid $gold;
+  padding: 1rem 2.5rem;
+  display: inline-block;
+  transition: background $transition-base, color $transition-base, transform $transition-fast;
+  cursor: pointer;
+  background: transparent;
+
+  &:hover {
+    background: rgba(201, 168, 76, 0.08);
+    transform: translateY(-2px);
+  }
+}

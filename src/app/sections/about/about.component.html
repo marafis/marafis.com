@@ -1,0 +1,81 @@
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+
+      <!-- Visual / Stats panel -->
+      <div class="about-visual" mrfReveal="left">
+        <div class="about-frame">
+          <div class="about-frame-inner">
+            <div class="about-stat-grid">
+              @for (stat of content.stats; track stat.label) {
+                <div class="about-stat">
+                  <span class="stat-num">
+                    {{ stat.value }}<span class="stat-suffix">{{ stat.suffix }}</span>
+                  </span>
+                  <span class="stat-label">{{ stat.label }}</span>
+                </div>
+              }
+            </div>
+
+            <!-- Decorative background circle -->
+            <svg class="frame-deco" viewBox="0 0 160 160" fill="none">
+              <circle cx="80" cy="80" r="60" stroke="#C9A84C" stroke-width="0.5"/>
+              <circle cx="80" cy="80" r="40" stroke="#C9A84C" stroke-width="0.5"/>
+              <circle cx="80" cy="80" r="20" stroke="#C9A84C" stroke-width="0.5"/>
+              <line x1="80" y1="0"   x2="80"  y2="160" stroke="#C9A84C" stroke-width="0.5"/>
+              <line x1="0"  y1="80"  x2="160" y2="80"  stroke="#C9A84C" stroke-width="0.5"/>
+            </svg>
+          </div>
+        </div>
+        <div class="about-deco"></div>
+      </div>
+
+      <!-- Content -->
+      <div class="about-content" mrfReveal="right">
+        <div class="section-label">Who We Are</div>
+        <h2 class="section-title">
+          Where <em>Engineering Depth</em> Meets Strategic Vision
+        </h2>
+
+        <p class="section-body">
+          Marafis is a specialist technology consultancy founded on a single conviction:
+          that exceptional software and architecture decisions are the highest-leverage
+          investment a business can make. We bring over two decades of hands-on engineering
+          and technical leadership to every engagement.
+        </p>
+        <p class="section-body" style="margin-top: 1rem;">
+          From greenfield platforms to complex legacy transformations - across finance,
+          insurance, e-commerce, and telecoms - we've led the initiatives that matter most.
+        </p>
+
+        <div class="about-pillars">
+          <div class="pillar">
+            <div class="pillar-dot"></div>
+            <p class="pillar-text">
+              <strong>Architecture-first thinking.</strong>
+              We design before we build - ensuring every decision is intentional, documented,
+              and aligned to your business goals.
+            </p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-dot"></div>
+            <p class="pillar-text">
+              <strong>Hands-on delivery.</strong>
+              We don't hand off slide decks. Our consultants write code, lead teams, and stay
+              accountable through delivery.
+            </p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-dot"></div>
+            <p class="pillar-text">
+              <strong>Outcome-oriented partnership.</strong>
+              We measure our success by yours - reduced time-to-market, lower operational
+              risk, and platforms that last.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

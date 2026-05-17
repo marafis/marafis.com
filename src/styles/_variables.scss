@@ -1,0 +1,124 @@
+// ── COLOR PALETTE ──────────────────────────────────────────────────
+$black:        #050505;
+$black-2:      #0d0d0d;
+$black-3:      #111111;
+$black-4:      #1a1a1a;
+$black-5:      #222222;
+
+$gold:         #C9A84C;
+$gold-light:   #E8C96A;
+$gold-pale:    #F5E4A8;
+$gold-deep:    #8B6914;
+$gold-mid:     #D4AF37;
+
+$white:        #faf8f3;
+$white-dim:    rgba(250, 248, 243, 0.7);
+$white-faint:  rgba(250, 248, 243, 0.2);
+
+$gold-line:    rgba(201, 168, 76, 0.25);
+$gold-glow:    rgba(201, 168, 76, 0.08);
+
+// CSS Custom Properties (also available globally)
+:root {
+  --black:       #{$black};
+  --black-2:     #{$black-2};
+  --black-3:     #{$black-3};
+  --black-4:     #{$black-4};
+  --black-5:     #{$black-5};
+  --gold:        #{$gold};
+  --gold-light:  #{$gold-light};
+  --gold-pale:   #{$gold-pale};
+  --gold-deep:   #{$gold-deep};
+  --gold-mid:    #{$gold-mid};
+  --white:       #{$white};
+  --white-dim:   #{$white-dim};
+  --white-faint: #{$white-faint};
+  --gold-line:   #{$gold-line};
+  --gold-glow:   #{$gold-glow};
+}
+
+// ── TYPOGRAPHY ──────────────────────────────────────────────────────
+$font-serif:   'Cormorant Garamond', Georgia, serif;
+$font-serif-sc:'Cormorant SC', Georgia, serif;
+$font-sans:    'Raleway', sans-serif;
+
+// ── SPACING ─────────────────────────────────────────────────────────
+$spacing-xs:  0.5rem;
+$spacing-sm:  1rem;
+$spacing-md:  1.5rem;
+$spacing-lg:  2rem;
+$spacing-xl:  3rem;
+$spacing-2xl: 4rem;
+$spacing-3xl: 6rem;
+$spacing-4xl: 8rem;
+
+// ── BREAKPOINTS ─────────────────────────────────────────────────────
+$bp-mobile:  480px;
+$bp-tablet:  768px;
+$bp-laptop:  1024px;
+$bp-desktop: 1280px;
+
+// ── TRANSITIONS ─────────────────────────────────────────────────────
+$transition-fast:   0.2s ease;
+$transition-base:   0.3s ease;
+$transition-slow:   0.5s ease;
+$transition-reveal: 0.8s ease;
+
+// ── MIXINS ──────────────────────────────────────────────────────────
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin section-padding {
+  padding: $spacing-4xl 0;
+}
+
+@mixin container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 $spacing-2xl;
+
+  @media (max-width: $bp-tablet) {
+    padding: 0 $spacing-lg;
+  }
+}
+
+@mixin label-text {
+  font-family: $font-sans;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: $gold;
+}
+
+@mixin body-text {
+  font-family: $font-sans;
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: $white-dim;
+  line-height: 1.9;
+}
+
+@mixin gold-border-left {
+  border-left: 0.5px solid $gold-line;
+  transition: border-color $transition-base;
+
+  &:hover {
+    border-color: $gold;
+  }
+}
+
+@mixin responsive($bp) {
+  @media (max-width: $bp) {
+    @content;
+  }
+}

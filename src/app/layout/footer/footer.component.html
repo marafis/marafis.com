@@ -1,0 +1,62 @@
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+
+      <!-- Brand -->
+      <div class="footer-brand">
+        <a routerLink="/" class="nav-logo">
+          <span class="logo-mark">MARAFIS</span>
+          <span class="logo-sub">Technology Consultancy</span>
+        </a>
+        <p>
+          Precision-crafted technology solutions for enterprises that demand excellence.
+          Architecture, cloud, and digital transformation - delivered with rigour and care.
+        </p>
+      </div>
+
+      <!-- Services -->
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-links">
+          @for (item of content.footerServices; track item.label) {
+            <li>
+              <a [routerLink]="['/']" [fragment]="item.fragment">{{ item.label }}</a>
+            </li>
+          }
+        </ul>
+      </div>
+
+      <!-- Company -->
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links">
+          @for (item of content.footerCompany; track item.label) {
+            <li>
+              <a [routerLink]="['/']" [fragment]="item.fragment">{{ item.label }}</a>
+            </li>
+          }
+        </ul>
+      </div>
+
+      <!-- Connect -->
+      <div>
+        <div class="footer-col-title">Connect</div>
+        <ul class="footer-links">
+          <li><a href="mailto:hello@marafis.com">hello&#64;marafis.com</a></li>
+          <li><a href="https://marafis.com" target="_blank" rel="noopener">www.marafis.com</a></li>
+          <li><a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span class="footer-copy">
+        &copy; {{ year }} Marafis Technology Consultancy. All rights reserved.
+      </span>
+      <span class="footer-tagline">
+        Engineered with precision. Delivered with integrity.
+      </span>
+    </div>
+  </div>
+</footer>

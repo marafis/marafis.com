@@ -1,0 +1,110 @@
+<svg width="100%" viewBox="0 0 690 430" role="img" xmlns="http://www.w3.org/2000/svg" style="">
+  <title style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">Marafis logo</title>
+  <desc style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">Marafis Technology Consultancy logo — geometric diamond monogram in gold with wordmark below</desc>
+
+  <defs>
+    <linearGradient id="goldH" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8B6914"/>
+      <stop offset="30%" stop-color="#C9A84C"/>
+      <stop offset="60%" stop-color="#F5E4A8"/>
+      <stop offset="100%" stop-color="#C9A84C"/>
+    </linearGradient>
+    <linearGradient id="goldV" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#E8C96A"/>
+      <stop offset="50%" stop-color="#C9A84C"/>
+      <stop offset="100%" stop-color="#8B6914"/>
+    </linearGradient>
+    <linearGradient id="goldD" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F5E4A8"/>
+      <stop offset="50%" stop-color="#C9A84C"/>
+      <stop offset="100%" stop-color="#8B6914"/>
+    </linearGradient>
+  <mask id="imagine-text-gaps-dhkjyx" maskUnits="userSpaceOnUse"><rect x="0" y="0" width="690" height="430" fill="white"/><rect x="192.0625" y="264" width="295.875" height="52" fill="black" rx="2"/><rect x="191.984375" y="318" width="295.03125" height="16" fill="black" rx="2"/></mask></defs>
+
+  <!-- ── BACKGROUND ── -->
+  <rect width="680" height="420" fill="#050505" style="fill:rgb(5, 5, 5);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- ── OUTER FRAME CORNERS ── -->
+  <!-- TL -->
+  <path d="M40 40 L40 65 M40 40 L65 40" stroke="#C9A84C" stroke-width="0.75" fill="none" opacity="0.5" style="fill:none;stroke:rgb(201, 168, 76);color:rgb(0, 0, 0);stroke-width:0.75px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="40" y="40" width="4" height="4" fill="#C9A84C" opacity="0.7" style="fill:rgb(201, 168, 76);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.7;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- TR -->
+  <path d="M640 40 L640 65 M640 40 L615 40" stroke="#C9A84C" stroke-width="0.75" fill="none" opacity="0.5" style="fill:none;stroke:rgb(201, 168, 76);color:rgb(0, 0, 0);stroke-width:0.75px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="636" y="40" width="4" height="4" fill="#C9A84C" opacity="0.7" style="fill:rgb(201, 168, 76);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.7;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- BL -->
+  <path d="M40 380 L40 355 M40 380 L65 380" stroke="#C9A84C" stroke-width="0.75" fill="none" opacity="0.5" style="fill:none;stroke:rgb(201, 168, 76);color:rgb(0, 0, 0);stroke-width:0.75px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="40" y="376" width="4" height="4" fill="#C9A84C" opacity="0.7" style="fill:rgb(201, 168, 76);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.7;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- BR -->
+  <path d="M640 380 L640 355 M640 380 L615 380" stroke="#C9A84C" stroke-width="0.75" fill="none" opacity="0.5" style="fill:none;stroke:rgb(201, 168, 76);color:rgb(0, 0, 0);stroke-width:0.75px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="636" y="376" width="4" height="4" fill="#C9A84C" opacity="0.7" style="fill:rgb(201, 168, 76);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.7;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- ── SUBTLE RADIAL GLOW ── -->
+  <ellipse cx="340" cy="180" rx="200" ry="130" fill="none" stroke="#C9A84C" stroke-width="0" opacity="0" style="fill:none;stroke:rgb(201, 168, 76);color:rgb(0, 0, 0);stroke-width:0px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="340" cy="175" r="160" fill="url(#goldH)" opacity="0.04" style="stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.04;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- ══════════════════════════════════════════════
+       MARK — Layered geometric diamond monogram
+       Centre: 340, 175
+  ═══════════════════════════════════════════════ -->
+
+  <!-- Outermost thin square rotated 45° -->
+  <rect x="283" y="118" width="114" height="114" rx="2" fill="none" stroke="url(#goldH)" stroke-width="0.6" transform="rotate(45 340 175)" opacity="0.35" style="fill:none;color:rgb(0, 0, 0);stroke-width:0.6px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.35;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Mid ring square -->
+  <rect x="299" y="134" width="82" height="82" rx="1" fill="none" stroke="url(#goldH)" stroke-width="0.6" transform="rotate(45 340 175)" opacity="0.5" style="fill:none;color:rgb(0, 0, 0);stroke-width:0.6px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Solid diamond outer shell -->
+  <polygon points="340,108 407,175 340,242 273,175" fill="none" stroke="url(#goldH)" stroke-width="1.2" opacity="0.9" style="fill:none;color:rgb(0, 0, 0);stroke-width:1.2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.9;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Inner diamond fill (slightly opaque) -->
+  <polygon points="340,120 395,175 340,230 285,175" fill="#0d0d0d" style="fill:rgb(13, 13, 13);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Inner diamond border -->
+  <polygon points="340,120 395,175 340,230 285,175" fill="none" stroke="url(#goldV)" stroke-width="1" opacity="0.85" style="fill:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.85;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Cross lines through diamond -->
+  <line x1="285" y1="175" x2="395" y2="175" stroke="#C9A84C" stroke-width="0.5" opacity="0.3" style="fill:rgb(0, 0, 0);stroke:rgb(201, 168, 76);color:rgb(0, 0, 0);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.3;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <line x1="340" y1="120" x2="340" y2="230" stroke="#C9A84C" stroke-width="0.5" opacity="0.3" style="fill:rgb(0, 0, 0);stroke:rgb(201, 168, 76);color:rgb(0, 0, 0);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.3;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Inner diamond (second layer) -->
+  <polygon points="340,138 377,175 340,212 303,175" fill="none" stroke="url(#goldD)" stroke-width="0.7" opacity="0.6" style="fill:none;color:rgb(0, 0, 0);stroke-width:0.7px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.6;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Diagonals inside inner diamond -->
+  <line x1="303" y1="175" x2="377" y2="175" stroke="#C9A84C" stroke-width="0.4" opacity="0.2" style="fill:rgb(0, 0, 0);stroke:rgb(201, 168, 76);color:rgb(0, 0, 0);stroke-width:0.4px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.2;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <line x1="340" y1="138" x2="340" y2="212" stroke="#C9A84C" stroke-width="0.4" opacity="0.2" style="fill:rgb(0, 0, 0);stroke:rgb(201, 168, 76);color:rgb(0, 0, 0);stroke-width:0.4px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.2;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- ── M LETTERFORM inside diamond ── -->
+  <!-- Constructed from fine strokes; optical centre 340,175 -->
+  <!-- Legs of M: left stem, left diagonal up, right diagonal down, right stem -->
+  <polyline points="318,193 318,158 338,178 340,175 342,178 362,158 362,193" fill="none" stroke="url(#goldH)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="fill:none;color:rgb(0, 0, 0);stroke-width:2.2px;stroke-linecap:round;stroke-linejoin:round;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Tiny centre dot accent -->
+  <circle cx="340" cy="175" r="2.5" fill="#C9A84C" opacity="0.6" style="fill:rgb(201, 168, 76);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.6;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- ── CORNER DIAMOND ACCENTS ── -->
+  <polygon points="340,101 346,108 340,115 334,108" fill="#C9A84C" opacity="0.8" style="fill:rgb(201, 168, 76);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.8;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <polygon points="340,235 346,242 340,249 334,242" fill="#C9A84C" opacity="0.8" style="fill:rgb(201, 168, 76);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.8;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <polygon points="266,175 273,168 280,175 273,182" fill="#C9A84C" opacity="0.8" style="fill:rgb(201, 168, 76);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.8;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <polygon points="400,175 407,168 414,175 407,182" fill="#C9A84C" opacity="0.8" style="fill:rgb(201, 168, 76);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.8;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- ══════════════════════════════════════════════
+       WORDMARK
+  ═══════════════════════════════════════════════ -->
+
+  <!-- Thin divider above wordmark -->
+  <line x1="240" y1="267" x2="340" y2="267" stroke="url(#goldH)" stroke-width="0.5" opacity="0.4" mask="url(#imagine-text-gaps-dhkjyx)" style="fill:rgb(0, 0, 0);color:rgb(0, 0, 0);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.4;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <polygon points="340,264 343,267 340,270 337,267" fill="#C9A84C" opacity="0.7" style="fill:rgb(201, 168, 76);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.7;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <line x1="340" y1="267" x2="440" y2="267" stroke="url(#goldH)" stroke-width="0.5" opacity="0.4" mask="url(#imagine-text-gaps-dhkjyx)" style="fill:rgb(0, 0, 0);color:rgb(0, 0, 0);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.4;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- MARAFIS — spaced caps -->
+  <text x="340" y="305" font-family="'Cormorant SC', 'Cormorant Garamond', Georgia, serif" font-size="42" font-weight="500" letter-spacing="14" text-anchor="middle" fill="url(#goldH)" style="stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Cormorant SC&quot;, &quot;Cormorant Garamond&quot;, Georgia, serif;font-size:42px;font-weight:500;text-anchor:middle;dominant-baseline:auto">MARAFIS</text>
+
+  <!-- Subtitle -->
+  <text x="340" y="330" font-family="'Raleway', Arial, sans-serif" font-size="10.5" font-weight="400" letter-spacing="6" text-anchor="middle" fill="#C9A84C" opacity="0.6" style="fill:rgb(201, 168, 76);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.6;font-family:Raleway, Arial, sans-serif;font-size:10.5px;font-weight:400;text-anchor:middle;dominant-baseline:auto">TECHNOLOGY  CONSULTANCY</text>
+
+  <!-- Bottom thin divider -->
+  <line x1="260" y1="348" x2="340" y2="348" stroke="#C9A84C" stroke-width="0.4" opacity="0.25" style="fill:rgb(0, 0, 0);stroke:rgb(201, 168, 76);color:rgb(0, 0, 0);stroke-width:0.4px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.25;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <line x1="340" y1="348" x2="420" y2="348" stroke="#C9A84C" stroke-width="0.4" opacity="0.25" style="fill:rgb(0, 0, 0);stroke:rgb(201, 168, 76);color:rgb(0, 0, 0);stroke-width:0.4px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.25;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <polygon points="340,345 343,348 340,351 337,348" fill="#C9A84C" opacity="0.35" style="fill:rgb(201, 168, 76);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.35;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+</svg>

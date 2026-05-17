@@ -1,0 +1,29 @@
+<section id="services">
+  <div class="container">
+
+    <div class="services-header">
+      <div mrfReveal="up">
+        <div class="section-label">Our Expertise</div>
+        <h2 class="section-title">What We <em>Deliver</em></h2>
+      </div>
+      <p class="section-body" mrfReveal="up" [revealDelay]="0.15">
+        We bring decades of hands-on engineering and architectural leadership to every
+        engagement - designing systems that are resilient, secure, and engineered for
+        long-term growth.
+      </p>
+    </div>
+
+    <div class="services-grid">
+      @for (service of content.services; track service.number; let i = $index) {
+        <div class="service-card" mrfReveal="up" [revealDelay]="(i % 3) * 0.1">
+          <span class="service-num">{{ service.number }}</span>
+          <div class="service-icon" [innerHTML]="safeIcon(service)"></div>
+          <div class="service-name">{{ service.name }}</div>
+          <p class="service-desc">{{ service.description }}</p>
+          <div class="service-arrow">Explore &#8594;</div>
+        </div>
+      }
+    </div>
+
+  </div>
+</section>

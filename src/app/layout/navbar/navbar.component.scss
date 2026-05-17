@@ -1,0 +1,114 @@
+@use 'variables' as *;
+
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 4rem;
+  background: linear-gradient(to bottom, rgba(5,5,5,0.98) 0%, rgba(5,5,5,0) 100%);
+  transition: background 0.4s ease, padding 0.4s ease, border-color 0.4s ease;
+  border-bottom: 0.5px solid transparent;
+
+  @include responsive($bp-tablet) {
+    padding: 1.5rem 2rem;
+  }
+
+  &.scrolled {
+    background: rgba(5, 5, 5, 0.97);
+    padding: 1rem 4rem;
+    border-bottom-color: $gold-line;
+
+    @include responsive($bp-tablet) {
+      padding: 1rem 2rem;
+    }
+  }
+}
+
+// ── LOGO ────────────────────────────────────────────────────────────
+.nav-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  text-decoration: none;
+}
+
+.logo-mark {
+  font-family: $font-serif-sc;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  color: $gold-mid;
+  line-height: 1;
+}
+
+.logo-sub {
+  font-family: $font-sans;
+  font-size: 0.58rem;
+  font-weight: 500;
+  letter-spacing: 0.45em;
+  color: $white-dim;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+// ── LINKS ────────────────────────────────────────────────────────────
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  list-style: none;
+
+  @include responsive($bp-laptop) {
+    display: none;
+  }
+
+  a {
+    font-family: $font-sans;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $white-dim;
+    transition: color $transition-base;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0;
+      height: 0.5px;
+      background: $gold;
+      transition: width 0.35s ease;
+    }
+
+    &:hover {
+      color: $gold-light;
+      &::after { width: 100%; }
+    }
+  }
+}
+
+// ── CTA BUTTON ───────────────────────────────────────────────────────
+.nav-cta {
+  font-family: $font-sans;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: $black;
+  background: $gold;
+  padding: 0.65rem 1.6rem;
+  transition: background $transition-base, transform $transition-fast;
+
+  &:hover {
+    background: $gold-light;
+    transform: translateY(-1px);
+  }
+}

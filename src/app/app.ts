@@ -1,0 +1,17 @@
+import { Component, signal } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { NavbarComponent } from '@layout/navbar/navbar.component';
+import { FooterComponent } from '@layout/footer/footer.component';
+@Component({
+  selector: 'mrf-root',
+  standalone: true,
+  imports: [RouterOutlet, NavbarComponent, FooterComponent, FooterComponent],
+  templateUrl: './app.html',
+  styles: [`
+    main {
+      min-height: 100vh;
+    }
+  `],
+})
+export class AppComponent {}
+

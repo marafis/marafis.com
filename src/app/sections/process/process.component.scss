@@ -1,0 +1,111 @@
+@use 'variables' as *;
+
+section {
+  padding: $spacing-4xl 0;
+  background: $black-2;
+}
+
+// ── HEADER ───────────────────────────────────────────────────────────
+.process-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .section-label { justify-content: center; }
+  .section-title { text-align: center; }
+  .section-body  { text-align: center; margin-top: 0.5rem; max-width: 100%; }
+}
+
+// ── STEPS ────────────────────────────────────────────────────────────
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  position: relative;
+
+  // Connecting gold line between circles
+  &::before {
+    content: '';
+    position: absolute;
+    top: 2.5rem;
+    left: 12.5%; right: 12.5%;
+    height: 0.5px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      $gold-line 20%,
+      $gold-line 80%,
+      transparent
+    );
+  }
+
+  @include responsive($bp-laptop) {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+
+    &::before { display: none; }
+  }
+
+  @include responsive($bp-mobile) {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+// ── STEP ─────────────────────────────────────────────────────────────
+.process-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 1.5rem;
+
+  &:hover .step-circle {
+    background: rgba(201, 168, 76, 0.08);
+  }
+}
+
+.step-circle {
+  width: 50px;
+  height: 50px;
+  border: 0.5px solid $gold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: $black-2;
+  margin-bottom: 2rem;
+  transition: background $transition-base;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border: 0.5px solid rgba(201, 168, 76, 0.2);
+  }
+}
+
+.step-num {
+  font-family: $font-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: $gold;
+}
+
+.step-title {
+  font-family: $font-serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: $white;
+  margin-bottom: 0.75rem;
+}
+
+.step-desc {
+  font-family: $font-sans;
+  font-size: 0.78rem;
+  font-weight: 300;
+  color: $white-dim;
+  line-height: 1.8;
+}
