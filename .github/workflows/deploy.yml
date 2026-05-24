@@ -10,14 +10,19 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
-      contents: read
+      contents: write
       packages: write
 
     steps:
-      - name: Checkout code repo
+
+      # =========================
+      # 🔵 CI PHASE START
+      # =========================
+
+      - name: Checkout WEB repo
         uses: actions/checkout@v4
 
-      - name: Set variables (single source of truth for image + tag)
+      - name: Set image variables
         run: |
           echo "IMAGE_NAME=ghcr.io/${{ github.repository_owner }}/frontend" >> $GITHUB_ENV
           echo "TAG=${GITHUB_SHA::7}" >> $GITHUB_ENV
@@ -29,29 +34,33 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build Docker image
+      - name: Build and push image
         run: |
           docker build -t $IMAGE_NAME:$TAG .
-          docker tag $IMAGE_NAME:$TAG $IMAGE_NAME:latest
-
-      - name: Push Docker image
-        run: |
           docker push $IMAGE_NAME:$TAG
-          docker push $IMAGE_NAME:latest
 
-      # ==============================
-      # 🚀 GITOPS AUTO UPDATE STEP
-      # ==============================
-      - name: Checkout infra repo
+      # =========================
+      # 🟢 CD PHASE START (GitOps)
+      # =========================
+
+      - name: Checkout INFRA repo
         uses: actions/checkout@v4
         with:
           repository: marafis/marafis-infra
           token: ${{ secrets.GITHUB_TOKEN }}
           path: infra
 
-      - name: Update deployment image in infra repo
+      - name: Debug infra structure (IMPORTANT)
         run: |
-          sed -i "s|image: .*frontend:.*|image: $IMAGE:$TAG|g" infra/frontend/deployment.yml
+          ls -R infra
+
+      - name: Verify deployment file exists
+        run: |
+          test -f infra/frontend/deployment.yml
+
+      - name: Update image in deployment file
+        run: |
+          sed -i "s|image: .*frontend:.*|image: $IMAGE_NAME:$TAG|g" infra/frontend/deployment.yml
 
       - name: Commit and push infra changes
         run: |
@@ -60,5 +69,5 @@ jobs:
           git config user.email "github-actions@github.com"
 
           git add .
-          git commit -m "update frontend image to $TAG"
+          git commit -m "update frontend image to $TAG" || echo "No changes to commit"
           git push
