@@ -47,7 +47,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: marafis/marafis-infra
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.INFRA_TOKEN }}
           path: infra
 
       - name: Debug infra structure (IMPORTANT)
