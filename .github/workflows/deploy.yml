@@ -19,7 +19,7 @@ jobs:
       # 🔵 CI PHASE START
       # =========================
 
-      - name: Checkout WEB repo
+      - name: Checkout WEB repo (CI Started)
         uses: actions/checkout@v4
 
       - name: Set image variables
@@ -43,7 +43,7 @@ jobs:
       # 🟢 CD PHASE START (GitOps)
       # =========================
 
-      - name: Checkout INFRA repo
+      - name: Checkout INFRA repo (CD Started)
         uses: actions/checkout@v4
         with:
           repository: marafis/marafis-infra
