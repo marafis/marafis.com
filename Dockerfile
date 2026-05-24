@@ -30,7 +30,7 @@ RUN rm -rf /usr/share/nginx/html/*
 COPY --from=build /app/dist/marafis.com/browser /usr/share/nginx/html
 
 # Copy nginx config
-COPY infra/nginx/nginx.conf /etc/nginx/conf.d/default.conf
+COPY config/nginx/nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
 
