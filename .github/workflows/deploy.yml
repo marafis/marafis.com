@@ -49,30 +49,22 @@ jobs:
           repository: marafis/marafis-infra
           token: ${{ secrets.INFRA_TOKEN }}
           path: infra
+          # persist-credentials: true  ← this is the default; no need to reset remote
 
-      - name: 6. Debug infra structure (CD)
-        run: |
-          ls -R infra
-
-      - name: 7. Verify deployment file exists (CD)
+      - name: 6. Verify deployment file exists (CD)
         run: |
           test -f infra/frontend/deployment.yaml
 
-      - name: 8. Update image in deployment file (CD)
+      - name: 7. Update image in deployment file (CD)
         run: |
           sed -i "s|image: .*frontend:.*|image: $IMAGE_NAME:$TAG|g" infra/frontend/deployment.yaml
 
-      - name: 9. Fix git remote authentication
+      - name: 8. Commit and push infra changes (CD)
         run: |
           cd infra
-          git remote set-url origin https://x-access-token:${{ secrets.INFRA_TOKEN }}@github.com/marafis/marafis-infra.git
-
-      - name: 10. Commit and push infra changes (CD)
-        run: |
-          cd infra
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
-
-          git add .
-          git commit -m "update frontend image to $TAG" || echo "No changes to commit"
-          git push origin main
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add frontend/deployment.yaml
+          git diff --cached --quiet && echo "No changes to commit" && exit 0
+          git commit -m "chore: update frontend image to ${{ env.TAG }}"
+          git push origin HEAD
