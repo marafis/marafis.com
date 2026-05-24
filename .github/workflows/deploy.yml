@@ -56,7 +56,7 @@ jobs:
 
       - name: Verify deployment file exists
         run: |
-          test -f infra/frontend/deployment.yml
+          test -f infra/frontend/deployment.yaml
 
       - name: Update image in deployment file
         run: |
