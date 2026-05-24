@@ -60,7 +60,7 @@ jobs:
 
       - name: Update image in deployment file
         run: |
-          sed -i "s|image: .*frontend:.*|image: $IMAGE_NAME:$TAG|g" infra/frontend/deployment.yml
+          sed -i "s|image: .*frontend:.*|image: $IMAGE_NAME:$TAG|g" infra/frontend/deployment.yaml
 
       - name: Commit and push infra changes
         run: |
