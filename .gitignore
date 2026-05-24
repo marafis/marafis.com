@@ -1,7 +1,6 @@
 /.idea/
 /.angular/
 /.editorconfig
-/package-lock.json
 /.vscode/
 /node_modules/
 /dist/
