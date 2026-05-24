@@ -1,4 +1,4 @@
-name: Build and Push Angular Docker Image
+name: Build, Push & Update GitOps Infra
 
 on:
   push:
@@ -14,7 +14,7 @@ jobs:
       packages: write
 
     steps:
-      - name: Checkout code
+      - name: Checkout code repo
         uses: actions/checkout@v4
 
       - name: Set variables (single source of truth for image + tag)
@@ -38,3 +38,27 @@ jobs:
         run: |
           docker push $IMAGE_NAME:$TAG
           docker push $IMAGE_NAME:latest
+
+      # ==============================
+      # 🚀 GITOPS AUTO UPDATE STEP
+      # ==============================
+      - name: Checkout infra repo
+        uses: actions/checkout@v4
+        with:
+          repository: marafis/marafis-infra
+          token: ${{ secrets.GITHUB_TOKEN }}
+          path: infra
+
+      - name: Update deployment image in infra repo
+        run: |
+          sed -i "s|image: .*frontend:.*|image: $IMAGE:$TAG|g" infra/frontend/deployment.yml
+
+      - name: Commit and push infra changes
+        run: |
+          cd infra
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+          git add .
+          git commit -m "update frontend image to $TAG"
+          git push
