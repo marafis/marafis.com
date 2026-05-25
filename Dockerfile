@@ -27,7 +27,7 @@ FROM nginx:alpine
 RUN rm -rf /usr/share/nginx/html/*
 
 # Copy Angular build
-COPY --from=build /app/dist/marafis.com/browser /usr/share/nginx/html
+COPY --from=build /app/dist/marafis-website/browser /usr/share/nginx/html
 
 # Copy nginx config
 COPY config/nginx/nginx.conf /etc/nginx/conf.d/default.conf
