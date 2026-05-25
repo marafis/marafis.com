@@ -48,18 +48,16 @@ jobs:
         with:
           repository: marafis/marafis-infra
           token: ${{ secrets.INFRA_TOKEN }}
-          path: infra
+          path: marafis-infra
           # persist-credentials: true  ← this is the default; no need to reset remote
 
       - name: 6. Verify deployment file exists (CD)
         run: |
-          test -f infra/frontend/deployment.yaml
-          test -f frontend/deployment.yaml
-          test -f infra/infra/frontend/deployment.yaml
+          test -f marafis-infra/infra/frontend/deployment.yaml
 
       - name: 7. Update image in deployment file (CD)
         run: |
-          sed -i "s|image: .*frontend:.*|image: $IMAGE_NAME:$TAG|g" infra/frontend/deployment.yaml
+          sed -i "s|image: .*frontend:.*|image: $IMAGE_NAME:$TAG|g" marafis-infra/infra/frontend/deployment.yaml
 
       - name: 8. Commit and push infra changes (CD)
         run: |
