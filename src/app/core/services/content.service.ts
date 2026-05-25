@@ -178,8 +178,8 @@ export class ContentService {
   // ── CONTACT ───────────────────────────────────────────────────────
   readonly contactItems: ContactItem[] = [
     { icon: 'email',    label: 'hello@marafis.com',          href: 'mailto:hello@marafis.com' },
-    { icon: 'web',      label: 'www.marafis.com',            href: 'https://marafis.com'      },
-    { icon: 'linkedin', label: 'LinkedIn: Marafis Consulting', href: 'https://linkedin.com' },
+    { icon: 'web',      label: 'www.marafis.com',            href: 'https://marafis.com' },
+    { icon: 'linkedin', label: 'LinkedIn: marafis.com', href: 'https://www.linkedin.com/company/marafis' },
   ];
 
   // ── FOOTER LINKS ──────────────────────────────────────────────────
