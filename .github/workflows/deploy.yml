@@ -61,7 +61,7 @@ jobs:
 
       - name: 8. Commit and push infra changes (CD)
         run: |
-          cd infra
+          cd marafis-infra
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add infra/frontend/deployment.yaml
