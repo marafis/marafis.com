@@ -54,6 +54,8 @@ jobs:
       - name: 6. Verify deployment file exists (CD)
         run: |
           test -f infra/frontend/deployment.yaml
+          test -f frontend/deployment.yaml
+          test -f infra/infra/frontend/deployment.yaml
 
       - name: 7. Update image in deployment file (CD)
         run: |
