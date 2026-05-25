@@ -5,7 +5,10 @@ import {
   OnDestroy,
   OnInit,
   Renderer2,
+  Inject,
+  PLATFORM_ID,
 } from '@angular/core';
+import {isPlatformBrowser} from '@angular/common';
 
 export type RevealDirection = 'up' | 'left' | 'right';
 
@@ -17,9 +20,11 @@ export class RevealDirective implements OnInit, OnDestroy {
   @Input() mrfReveal: RevealDirection = 'up';
   @Input() revealDelay = 0;
 
-  private observer!: IntersectionObserver;
+//  private observer!: IntersectionObserver;
+  private observer?: IntersectionObserver;
 
-  constructor(private el: ElementRef<HTMLElement>, private renderer: Renderer2) {}
+
+  constructor(private el: ElementRef<HTMLElement>, private renderer: Renderer2, @Inject(PLATFORM_ID) private platformId: object) {}
 
   ngOnInit(): void {
     const el = this.el.nativeElement;
@@ -37,12 +42,15 @@ export class RevealDirective implements OnInit, OnDestroy {
       this.renderer.setStyle(el, 'transition-delay', `${this.revealDelay}s`);
     }
 
+    // SSR GUARD
+    if (!isPlatformBrowser(this.platformId)) return;
+
     this.observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             this.renderer.addClass(el, 'visible');
-            this.observer.unobserve(el);
+            this.observer?.unobserve(el);
           }
         });
       },
