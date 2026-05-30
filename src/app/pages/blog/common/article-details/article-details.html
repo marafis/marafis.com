@@ -1,0 +1,185 @@
+@if (loading()) {
+  <div class="detail-loading">
+    <div class="loading-diamond">
+      <svg viewBox="0 0 40 40" fill="none">
+        <polygon points="20,2 38,20 20,38 2,20"
+                 stroke="#C9A84C" stroke-width="0.8" opacity="0.6">
+          <animateTransform attributeName="transform" type="rotate"
+                            from="0 20 20" to="360 20 20" dur="3s" repeatCount="indefinite"/>
+        </polygon>
+      </svg>
+    </div>
+  </div>
+}
+
+@if (post() && !loading()) {
+  <!-- Reading progress bar -->
+  <div class="progress-bar" [style.width.%]="progress()"></div>
+
+  <!-- Hero -->
+  <section class="detail-hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+
+    <div class="container">
+      <a [routerLink]="['/insights']" class="back-link">
+        <svg width="14" height="10" viewBox="0 0 14 10" fill="none">
+          <line x1="14" y1="5" x2="3" y2="5" stroke="currentColor" stroke-width="0.8"/>
+          <polyline points="6,2 3,5 6,8" stroke="currentColor" stroke-width="0.8" fill="none"/>
+        </svg>
+        All Insights
+      </a>
+    </div>
+
+    <div class="container hero-inner">
+      <div class="article-meta">
+        <!-- FIX: use post()!.category.name not post()!.category (was object) -->
+        <span class="meta-category">{{ post()!.category.name }}</span>
+        <span class="meta-sep">·</span>
+        <span class="meta-date">{{ post()!.date | date:'d MMMM yyyy' }}</span>
+        <span class="meta-sep">·</span>
+        <span class="meta-read">{{ post()!.readTime }}</span>
+      </div>
+
+      <h1 class="article-title">{{ post()!.title }}</h1>
+
+      <!-- FIX: use excerpt not subtitle (Article has no subtitle) -->
+
+      <div class="article-content">
+        <div class="content-body" [innerHTML]="content"></div>
+      </div>
+
+      <!--<div [innerHTML]="content"></div>-->
+      <!--<p class="article-subtitle">{{ post()!.blocks[0]?.body }}</p>-->
+
+      <div class="hero-divider">
+        <div class="divider-line"></div>
+        <div class="divider-diamond"></div>
+        <div class="divider-line"></div>
+      </div>
+
+      <div class="article-footer-meta">
+        <div class="author-block">
+          <div class="author-mark">
+            <svg viewBox="0 0 24 24" fill="none">
+              <polygon points="12,2 22,12 12,22 2,12" stroke="#C9A84C" stroke-width="0.8"/>
+              <polygon points="12,7 17,12 12,17 7,12" fill="none" stroke="#C9A84C" stroke-width="0.6" opacity="0.5"/>
+            </svg>
+          </div>
+          <div>
+            <div class="author-name">Marafis Technology Consultancy</div>
+            <div class="author-label">Principal Architect</div>
+          </div>
+        </div>
+        <!-- FIX: use single tag string not tags array (Article has tag not tags) -->
+        <div class="tag-list">
+          <span class="tag">{{ post()!.tag }}</span>
+          <span class="tag">{{ post()!.category.name }}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Article body -->
+  <article class="article-body">
+    <div class="container article-inner">
+
+      <!-- Sticky sidebar -->
+      <aside class="article-sidebar">
+        <div class="sidebar-inner">
+          <div class="sidebar-label">Reading</div>
+          <div class="sidebar-progress-wrap">
+            <div class="sidebar-progress-bar" [style.height.%]="progress()"></div>
+          </div>
+          <div class="sidebar-pct">{{ progress() }}%</div>
+
+          <div class="sidebar-divider"></div>
+
+          <div class="sidebar-label" style="margin-top:1.5rem">Share</div>
+          <div class="share-links">
+            <a href="https://www.linkedin.com/company/marafis"
+               target="_blank" rel="noopener" class="share-btn" title="Share on LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <rect x="1" y="1" width="14" height="14" stroke="currentColor" stroke-width="0.8"/>
+                <line x1="5" y1="7" x2="5" y2="13" stroke="currentColor" stroke-width="0.8"/>
+                <circle cx="5" cy="5" r="0.9" fill="currentColor"/>
+                <path d="M8 7 V13 M8 9.5 C8 7 12 7 12 9.5 V13" stroke="currentColor" stroke-width="0.8"/>
+              </svg>
+            </a>
+           <a href="https://www.facebook.com/marafisconsultancy"
+               target="_blank" rel="noopener" class="share-btn" title="Share on Facebook">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <rect x="1" y="1" width="14" height="14" stroke="currentColor" stroke-width="0.8"/>
+                <path d="M9 6H7.5V8H9V14H11V8H12.5L13 6H11V5C11 4.5 11.3 4 12 4H13V2H11.5C9.6 2 9 3.4 9 5V6Z" fill="currentColor"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main content -->
+      <!-- FIX: use description (full body) not sections array (Article has no sections) -->
+      <div class="article-content">
+        <div class="content-body" [innerHTML]="post()!.description"></div>
+
+        <!-- CTA -->
+        <div class="article-cta">
+          <svg class="cta-ornament" viewBox="0 0 40 40" fill="none">
+            <rect x="1" y="1" width="38" height="38" stroke="#C9A84C" stroke-width="0.5"/>
+            <rect x="7" y="7" width="26" height="26" stroke="#C9A84C" stroke-width="0.5" opacity="0.4"/>
+            <circle cx="20" cy="20" r="4" stroke="#C9A84C" stroke-width="0.5"/>
+            <circle cx="20" cy="20" r="1.5" fill="#C9A84C"/>
+          </svg>
+          <h3 class="cta-heading">
+            Building something that needs to <em>last?</em>
+          </h3>
+          <p class="cta-body">
+            Marafis brings 20+ years of hands-on architecture and engineering leadership
+            to enterprises that demand systems built for the long term.
+          </p>
+          <div class="cta-actions">
+            <a href="mailto:hello@marafis.com" class="btn-primary">Get in touch</a>
+            <a [routerLink]="['/#services']" fragment="services" class="btn-secondary">View services</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Related articles -->
+  @if (related().length > 0) {
+    <section class="related-section">
+      <div class="container">
+        <div class="related-header">
+          <div class="section-label">Continue Reading</div>
+          <h2 class="section-title">Related <em>Insights</em></h2>
+        </div>
+        <div class="related-grid">
+          @for (rel of related(); track rel.id) {
+            <article class="related-card">
+              <!-- FIX: use rel.category.name, rel.excerpt, correct routerLink -->
+              <span class="related-category">{{ rel.category.name }}</span>
+              <h3 class="related-title">{{ rel.title }}</h3>
+              <p class="related-excerpt">{{ rel.excerpt }}</p>
+              <a [routerLink]="['/insights', rel.category.slug, rel.slug]" class="read-more">
+                Read article
+                <svg width="14" height="10" viewBox="0 0 14 10" fill="none">
+                  <line x1="0" y1="5" x2="11" y2="5" stroke="currentColor" stroke-width="0.8"/>
+                  <polyline points="8,2 11,5 8,8" stroke="currentColor" stroke-width="0.8" fill="none"/>
+                </svg>
+              </a>
+              <div class="related-accent"></div>
+            </article>
+          }
+        </div>
+      </div>
+    </section>
+  }
+}
+
+@if (!post() && !loading()) {
+  <div class="not-found">
+    <p>Article not found.</p>
+    <a [routerLink]="['/insights']" class="btn-secondary">Back to Insights</a>
+  </div>
+}

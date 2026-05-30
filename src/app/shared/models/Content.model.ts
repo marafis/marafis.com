@@ -1,6 +1,6 @@
 export interface ProcessStep {
-  numeral: string;   // Roman numeral: I, II, III, IV
-  title: string;
+  numeral:     string;   // Roman numeral: I, II, III, IV
+  title:       string;
   description: string;
 }
 
@@ -9,18 +9,54 @@ export interface Industry {
 }
 
 export interface Stat {
-  value: string;
+  value:   string;
   suffix?: string;
-  label: string;
+  label:   string;
 }
 
 export interface ContactItem {
-  icon: 'email' | 'web' | 'linkedin';
+  icon: 'email' | 'web' | 'linkedin' | 'facebook';
   label: string;
-  href: string;
+  href:  string;
 }
 
 export interface NavLink {
-  label: string;
-  fragment: string;
+  label:     string;
+  fragment?: string;
+  route?:    string;
+}
+
+export interface BlogPost {
+  id:           string;
+  tag:          string;
+  title:        string;
+  excerpt:      string;
+  date:         string;
+  description?: string;
+  readTime:     string;
+  category:     Category;
+}
+
+export interface Article {
+  id:          string;
+  slug:        string;
+  tag:         string;
+  title:       string;
+  excerpt:     string;
+  description: string;
+  date:        string;
+  readTime:    string;
+  category:    Category;
+  content:     string | Promise<string>;
+}
+
+export interface Category {
+  id:   string;
+  name: string;
+  slug: string;
+}
+
+export interface ContentBlocks {
+  id: string;
+  body: string;
 }

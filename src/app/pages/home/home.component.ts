@@ -17,7 +17,7 @@ import { CtaComponent }             from '@sections/cta/cta.component';
     AboutComponent,
     ProcessComponent,
     IndustriesComponent,
-    CtaComponent,
+    CtaComponent
   ],
   templateUrl: './home.component.html',
 })

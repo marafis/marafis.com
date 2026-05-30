@@ -5,11 +5,17 @@
   </a>
 
   <ul class="nav-links">
-    @for (link of content.navLinks; track link.fragment) {
+    @for (link of content.navLinks; track link.label) {
       <li>
-        <a [routerLink]="['/']" [fragment]="link.fragment">
-          {{ link.label }}
-        </a>
+        @if (link.route) {
+          <a [routerLink]="link.route">
+            {{ link.label }}
+          </a>
+        } @else {
+          <a [routerLink]="['/']" [fragment]="link.fragment">
+            {{ link.label }}
+          </a>
+        }
       </li>
     }
   </ul>

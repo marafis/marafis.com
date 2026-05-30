@@ -13,12 +13,13 @@ export class ContentService {
 
   // ── NAVIGATION ────────────────────────────────────────────────────
   readonly navLinks: NavLink[] = [
-    { label: 'Home',       fragment: ''    },
-    { label: 'Services',   fragment: 'services'    },
-    { label: 'About',      fragment: 'about'       },
-    { label: 'Approach',   fragment: 'process'     },
-    { label: 'Industries', fragment: 'industries'  },
-    { label: 'Contact',    fragment: 'cta'         },
+    { label: 'Home',       fragment: '', route: '/' },
+    { label: 'Services',   fragment: 'services'     },
+    { label: 'About',      fragment: 'about'        },
+    { label: 'Approach',   fragment: 'process'      },
+    { label: 'Industries', fragment: 'industries'   },
+    { label: 'Insights',   route: '/insights'       },
+    { label: 'Contact',    fragment: 'cta'          },
   ];
 
   // ── MARQUEE ───────────────────────────────────────────────────────
@@ -180,6 +181,7 @@ export class ContentService {
     { icon: 'email',    label: 'hello@marafis.com',          href: 'mailto:hello@marafis.com' },
     { icon: 'web',      label: 'www.marafis.com',            href: 'https://marafis.com' },
     { icon: 'linkedin', label: 'LinkedIn: marafis.com', href: 'https://www.linkedin.com/company/marafis' },
+    { icon: 'facebook', label: 'Facebook: marafis.com', href: 'https://www.facebook.com/marafisconsultancy' },
   ];
 
   // ── FOOTER LINKS ──────────────────────────────────────────────────

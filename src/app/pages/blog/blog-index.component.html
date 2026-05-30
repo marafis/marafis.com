@@ -1,0 +1,62 @@
+<!-- HERO LAYOUT -->
+<div class="blog-hero">
+  <div class="blog-hero-grid"></div>
+  <svg class="hero-ornament" width="50" height="50" viewBox="0 0 50 50" fill="none">
+    <path d="M50 0 V50 H0" stroke="#C9A84C" stroke-width="0.5"/>
+    <rect x="46" y="46" width="4" height="4" fill="#C9A84C"/>
+  </svg>
+  <div class="blog-hero-inner">
+    <div class="blog-hero-eyebrow">Insights &amp; Perspectives</div>
+    <h1 class="blog-hero-title">Thinking in <em>Systems</em></h1>
+    <p class="blog-hero-sub">Architecture decisions, cloud strategy, and engineering leadership — from the Marafis consultancy.</p>
+  </div>
+</div>
+
+<!-- CATEGORY FILTER BAR -->
+<div class="filter-bar">
+  <div class="filter-inner">
+    @for (cat of categories; track cat) {
+      <button
+        class="filter-btn"
+        [class.active]="getCategorySlug(cat) === activeCategory"
+        (click)="setCategory(cat)">
+        {{ cat }}
+      </button>
+    }
+  </div>
+</div>
+
+<!-- MAIN LAYOUT STRUCT -->
+<div class="blog-main">
+  <main>
+
+    <mrf-featured-article [featuredArticle]="featuredArticle"></mrf-featured-article>
+    <mrf-recent-article [recentArticles]="recentArticles"></mrf-recent-article>
+
+
+
+<!--    <div class="load-more-row">
+      <button class="btn-outline">Load More Insights</button>
+    </div>-->
+  </main>
+
+  <!-- ASIDE SIDEBAR -->
+  <aside class="sidebar">
+    <!--<div class="sidebar-block">
+      <div class="sidebar-title">Search</div>
+      <div class="search-wrap">
+        <input type="text" class="search-input" placeholder="Search architecture insights...">
+      </div>
+    </div>-->
+
+    <mrf-most-read-article [mostReadArticles]="mostReadArticles"></mrf-most-read-article>
+    <mrf-article-topics></mrf-article-topics>
+
+    <!--<div class="sidebar-block">
+      <div class="sidebar-title">Newsletter</div>
+      <p class="newsletter-text">Receive structured modern systems philosophy updates straight to your terminal mail inbox.</p>
+      <input type="email" class="newsletter-input" placeholder="name@domain.com">
+      <button class="btn-gold-full">Subscribe</button>
+    </div>-->
+  </aside>
+</div>

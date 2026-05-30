@@ -3,6 +3,8 @@ import { provideRouter, withViewTransitions, withInMemoryScrolling } from '@angu
 
 import { routes } from './app.routes';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
+import { strapiInterceptor } from '@core/interceptors/strapi.interceptor';
+import {provideHttpClient, withFetch, withInterceptors} from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -14,6 +16,11 @@ export const appConfig: ApplicationConfig = {
         scrollPositionRestoration: 'top',
         anchorScrolling: 'enabled',
       })
-    ), provideClientHydration(withEventReplay()),
+    ),
+    provideClientHydration(withEventReplay()),
+    provideHttpClient(
+      withFetch(),
+      withInterceptors([strapiInterceptor])
+    ),
   ],
 };

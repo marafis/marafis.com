@@ -1,0 +1,77 @@
+/* ─── SIDEBAR BLOCK (container) ─── */
+.sidebar-block {
+  border: 0.5px solid var(--gold-line);
+  padding: 1.75rem;
+}
+
+/* ─── SECTION TITLE ─── */
+.sidebar-title {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.sidebar-title::after {
+  content: '';
+  flex: 1;
+  height: 0.5px;
+  background: var(--gold-line);
+}
+
+/* ─── POPULAR POST ITEM ─── */
+.popular-post {
+  display: flex;
+  gap: 0.9rem;
+  padding: 1rem 0;
+  border-bottom: 0.5px solid var(--gold-line);
+  cursor: pointer;
+  transition: padding-left 0.3s;
+}
+
+.popular-post:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.popular-post:hover {
+  padding-left: 0.35rem;
+}
+
+/* ─── RANK NUMBER ─── */
+.pp-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: rgba(201, 168, 76, 0.3);
+  line-height: 1;
+  flex-shrink: 0;
+  width: 1.5rem;
+  text-align: right;
+}
+
+/* ─── TITLE ─── */
+.pp-title {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1.45;
+  margin-bottom: 0.3rem;
+  transition: color 0.3s;
+}
+
+.popular-post:hover .pp-title {
+  color: var(--gold-light);
+}
+
+/* ─── META INFO ─── */
+.pp-meta {
+  font-size: 0.68rem;
+  color: var(--white-dim);
+}

@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insights — Marafis Technology</title>
+  <!-- SEO: WordPress would inject wp_head() here -->
+  <meta name="description" content="Architecture thinking, cloud strategy, and engineering leadership from the Marafis consultancy.">
+  <meta property="og:title" content="Insights - Marafis Technology Consultancy">
+  <meta property="og:description" content="Architecture thinking, cloud strategy, and engineering leadership from the Marafis consultancy.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Raleway:wght@300;400;500;600&family=Cormorant+SC:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ─────────────────────────────────────────────
+       MARAFIS DESIGN TOKENS — identical to main site
+    ───────────────────────────────────────────── */
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --black:#050505;
+      --black-2:#0d0d0d;
+      --black-3:#111;
+      --black-4:#1a1a1a;
+      --black-5:#222;
+      --gold:#C9A84C;
+      --gold-light:#E8C96A;
+      --gold-pale:#F5E4A8;
+      --gold-deep:#8B6914;
+      --gold-mid:#D4AF37;
+      --white:#faf8f3;
+      --white-dim:rgba(250,248,243,0.7);
+      --white-faint:rgba(250,248,243,0.2);
+      --gold-line:rgba(201,168,76,0.25);
+      --gold-glow:rgba(201,168,76,0.08);
+    }
+    html{scroll-behavior:smooth;font-size:16px}
+    body{background:var(--black);color:var(--white);font-family:'Raleway',sans-serif;font-weight:300;line-height:1.7;overflow-x:hidden}
+    ::selection{background:var(--gold);color:var(--black)}
+    ::-webkit-scrollbar{width:4px}
+    ::-webkit-scrollbar-track{background:var(--black-2)}
+    ::-webkit-scrollbar-thumb{background:var(--gold-deep);border-radius:2px}
+
+    /* ─── NAVIGATION (same as main site) ─── */
+    nav{
+      position:fixed;top:0;left:0;right:0;z-index:100;
+      display:flex;align-items:center;justify-content:space-between;
+      padding:1.5rem 4rem;
+      background:rgba(5,5,5,0.97);
+      border-bottom:0.5px solid var(--gold-line);
+    }
+    .nav-logo{display:flex;flex-direction:column;align-items:flex-start;text-decoration:none}
+    .logo-mark{font-family:'Cormorant SC',serif;font-size:1.5rem;font-weight:600;letter-spacing:0.25em;color:var(--gold-mid);line-height:1}
+    .logo-sub{font-family:'Raleway',sans-serif;font-size:0.58rem;font-weight:500;letter-spacing:0.45em;color:var(--white-dim);text-transform:uppercase;margin-top:2px}
+    .nav-links{display:flex;align-items:center;gap:2.5rem;list-style:none}
+    .nav-links a{font-size:0.72rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;text-decoration:none;color:var(--white-dim);transition:color 0.3s;position:relative}
+    .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:0.5px;background:var(--gold);transition:width 0.35s ease}
+    .nav-links a:hover{color:var(--gold-light)}
+    .nav-links a:hover::after,.nav-links a.active::after{width:100%}
+    .nav-links a.active{color:var(--gold)}
+    .nav-cta{font-size:0.7rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--black);background:var(--gold);padding:0.65rem 1.6rem;transition:background 0.3s,transform 0.2s}
+    .nav-cta:hover{background:var(--gold-light);transform:translateY(-1px)}
+
+    /* ─── BLOG HERO / PAGE HEADER ─── */
+    .blog-hero{
+      padding:10rem 0 5rem;
+      position:relative;overflow:hidden;
+      border-bottom:0.5px solid var(--gold-line);
+      background:
+        radial-gradient(ellipse 60% 60% at 50% 100%, rgba(201,168,76,0.05) 0%, transparent 70%),
+        var(--black);
+    }
+    .blog-hero-grid{
+      position:absolute;inset:0;
+      background-image:
+        linear-gradient(rgba(201,168,76,0.03) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(201,168,76,0.03) 1px,transparent 1px);
+      background-size:80px 80px;
+      mask-image:radial-gradient(ellipse 90% 90% at 50% 100%,black 20%,transparent 70%);
+    }
+    .blog-hero-inner{position:relative;z-index:2;text-align:center;max-width:720px;margin:0 auto;padding:0 2rem}
+    .blog-hero-eyebrow{
+      font-size:0.65rem;font-weight:600;letter-spacing:0.5em;text-transform:uppercase;
+      color:var(--gold);display:flex;align-items:center;justify-content:center;gap:1rem;margin-bottom:1.5rem;
+    }
+    .blog-hero-eyebrow::before,.blog-hero-eyebrow::after{content:'';flex:1;max-width:50px;height:0.5px;background:var(--gold)}
+    .blog-hero-title{
+      font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,5vw,4.5rem);
+      font-weight:300;line-height:1.08;color:var(--white);margin-bottom:1rem;
+    }
+    .blog-hero-title em{font-style:italic;color:var(--gold-light)}
+    .blog-hero-sub{font-size:0.95rem;font-weight:300;color:var(--white-dim);line-height:1.8;margin-top:1.25rem}
+
+    /* ─── CATEGORY FILTER BAR ─── */
+    .filter-bar{
+      border-bottom:0.5px solid var(--gold-line);
+      background:var(--black-2);
+      position:sticky;top:65px;z-index:50;
+    }
+    .filter-inner{
+      max-width:1280px;margin:0 auto;padding:0 4rem;
+      display:flex;align-items:center;gap:0;overflow-x:auto;
+      scrollbar-width:none;
+    }
+    .filter-inner::-webkit-scrollbar{display:none}
+    .filter-btn{
+      font-family:'Raleway',sans-serif;font-size:0.65rem;font-weight:500;
+      letter-spacing:0.25em;text-transform:uppercase;color:var(--white-dim);
+      border:none;background:none;cursor:pointer;
+      padding:1rem 1.5rem;white-space:nowrap;
+      border-bottom:2px solid transparent;transition:color 0.3s,border-color 0.3s;
+      position:relative;
+    }
+    .filter-btn:hover,.filter-btn.active{color:var(--gold);border-bottom-color:var(--gold)}
+
+    /* ─── MAIN LAYOUT ─── */
+    .blog-main{max-width:1280px;margin:0 auto;padding:5rem 4rem;display:grid;grid-template-columns:1fr 340px;gap:5rem;align-items:start}
+
+    /* ─── FEATURED ARTICLE ─── */
+    .featured-label{
+      font-size:0.6rem;font-weight:600;letter-spacing:0.4em;text-transform:uppercase;
+      color:var(--gold);display:flex;align-items:center;gap:0.75rem;margin-bottom:2rem;
+    }
+    .featured-label::before{content:'';width:30px;height:0.5px;background:var(--gold)}
+    .featured-card{
+      display:grid;grid-template-columns:1fr 1fr;gap:0;
+      border:0.5px solid var(--gold-line);margin-bottom:4rem;
+      position:relative;overflow:hidden;transition:border-color 0.4s;
+    }
+    .featured-card:hover{border-color:rgba(201,168,76,0.5)}
+    .featured-image{
+      position:relative;min-height:380px;overflow:hidden;
+      background:var(--black-3);
+    }
+    .featured-image-pattern{
+      position:absolute;inset:0;
+      background:
+        radial-gradient(circle at 30% 70%,rgba(201,168,76,0.12) 0%,transparent 50%),
+        radial-gradient(circle at 80% 20%,rgba(201,168,76,0.06) 0%,transparent 40%);
+    }
+    .featured-image-svg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0.15}
+    .featured-image-tag{
+      position:absolute;top:1.25rem;left:1.25rem;
+      font-size:0.6rem;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;
+      color:var(--black);background:var(--gold);padding:0.35rem 0.9rem;
+    }
+    .featured-body{
+      padding:2.5rem 2.5rem 2.5rem;
+      background:var(--black-2);display:flex;flex-direction:column;justify-content:space-between;
+    }
+    .article-meta{display:flex;align-items:center;gap:1rem;margin-bottom:1.25rem}
+    .article-date{font-size:0.7rem;letter-spacing:0.15em;color:var(--white-dim)}
+    .article-read{font-size:0.7rem;letter-spacing:0.1em;color:var(--white-dim)}
+    .article-dot{width:3px;height:3px;background:var(--gold);border-radius:50%}
+    .featured-title{
+      font-family:'Cormorant Garamond',serif;font-size:1.75rem;font-weight:400;
+      line-height:1.2;color:var(--white);margin-bottom:1rem;
+      transition:color 0.3s;
+    }
+    .featured-card:hover .featured-title{color:var(--gold-light)}
+    .featured-excerpt{font-size:0.85rem;font-weight:300;color:var(--white-dim);line-height:1.85;margin-bottom:1.5rem}
+    .featured-author{display:flex;align-items:center;gap:0.75rem;padding-top:1.25rem;border-top:0.5px solid var(--gold-line)}
+    .author-avatar{
+      width:36px;height:36px;border-radius:50%;background:rgba(201,168,76,0.15);
+      border:0.5px solid var(--gold-line);display:flex;align-items:center;justify-content:center;
+      font-family:'Cormorant SC',serif;font-size:0.75rem;color:var(--gold);font-weight:500;flex-shrink:0;
+    }
+    .author-name{font-size:0.78rem;font-weight:500;color:var(--white)}
+    .author-role{font-size:0.7rem;color:var(--white-dim)}
+    .read-link{
+      display:inline-flex;align-items:center;gap:0.5rem;margin-top:1.25rem;
+      font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;
+      color:var(--gold);text-decoration:none;transition:gap 0.3s;
+    }
+    .read-link:hover{gap:0.9rem}
+    .read-link svg{transition:transform 0.3s}
+    .read-link:hover svg{transform:translateX(4px)}
+
+    /* ─── ARTICLE GRID ─── */
+    .articles-heading{
+      font-family:'Cormorant Garamond',serif;font-size:0.85rem;font-weight:400;
+      letter-spacing:0.2em;color:var(--gold);margin-bottom:2rem;
+      display:flex;align-items:center;gap:1rem;
+    }
+    .articles-heading::after{content:'';flex:1;height:0.5px;background:var(--gold-line)}
+    .articles-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5px;background:var(--gold-line)}
+    .article-card{
+      background:var(--black-2);padding:2rem;position:relative;overflow:hidden;
+      transition:background 0.4s;cursor:pointer;
+      display:flex;flex-direction:column;
+    }
+    .article-card::before{
+      content:'';position:absolute;top:0;left:0;right:0;height:0.5px;
+      background:linear-gradient(90deg,transparent,var(--gold),transparent);
+      transform:scaleX(0);transform-origin:left;transition:transform 0.5s;
+    }
+    .article-card:hover{background:rgba(201,168,76,0.03)}
+    .article-card:hover::before{transform:scaleX(1)}
+    .article-card:hover .article-title{color:var(--gold-light)}
+    .card-tag{
+      font-size:0.6rem;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;
+      color:var(--gold);margin-bottom:1rem;
+    }
+    .article-title{
+      font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:400;
+      line-height:1.3;color:var(--white);margin-bottom:0.75rem;transition:color 0.3s;
+    }
+    .article-excerpt{font-size:0.8rem;font-weight:300;color:var(--white-dim);line-height:1.85;flex:1}
+    .article-footer{
+      display:flex;justify-content:space-between;align-items:center;
+      margin-top:1.5rem;padding-top:1.25rem;border-top:0.5px solid var(--gold-line);
+    }
+    .card-read-link{
+      font-size:0.65rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;
+      color:var(--gold);text-decoration:none;opacity:0;transform:translateX(-6px);
+      transition:opacity 0.3s,transform 0.3s;display:flex;align-items:center;gap:0.4rem;
+    }
+    .article-card:hover .card-read-link{opacity:1;transform:translateX(0)}
+
+    /* ─── LOAD MORE ─── */
+    .load-more-row{margin-top:3rem;display:flex;justify-content:center}
+    .btn-outline{
+      font-size:0.72rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;
+      color:var(--gold);border:0.5px solid var(--gold);padding:0.9rem 2.5rem;
+      background:none;cursor:pointer;transition:background 0.3s,transform 0.2s;
+      font-family:'Raleway',sans-serif;
+    }
+    .btn-outline:hover{background:rgba(201,168,76,0.08);transform:translateY(-2px)}
+
+    /* ─── SIDEBAR ─── */
+    .sidebar{display:flex;flex-direction:column;gap:2.5rem;position:sticky;top:120px}
+    .sidebar-block{border:0.5px solid var(--gold-line);padding:1.75rem}
+    .sidebar-title{
+      font-family:'Raleway',sans-serif;font-size:0.62rem;font-weight:600;
+      letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);
+      margin-bottom:1.25rem;display:flex;align-items:center;gap:0.75rem;
+    }
+    .sidebar-title::after{content:'';flex:1;height:0.5px;background:var(--gold-line)}
+
+    /* search */
+    .search-wrap{position:relative}
+    .search-input{
+      width:100%;background:var(--black);border:0.5px solid var(--gold-line);
+      color:var(--white);font-family:'Raleway',sans-serif;font-size:0.8rem;font-weight:300;
+      padding:0.75rem 2.5rem 0.75rem 1rem;outline:none;transition:border-color 0.3s;
+    }
+    .search-input::placeholder{color:rgba(250,248,243,0.3)}
+    .search-input:focus{border-color:var(--gold)}
+    .search-icon{position:absolute;right:0.75rem;top:50%;transform:translateY(-50%);opacity:0.4}
+
+    /* popular posts */
+    .popular-post{
+      display:flex;gap:0.9rem;padding:1rem 0;border-bottom:0.5px solid var(--gold-line);
+      cursor:pointer;transition:padding-left 0.3s;
+    }
+    .popular-post:last-child{border-bottom:none;padding-bottom:0}
+    .popular-post:hover{padding-left:0.35rem}
+    .popular-post:hover .pp-title{color:var(--gold-light)}
+    .pp-num{
+      font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:300;
+      color:rgba(201,168,76,0.3);line-height:1;flex-shrink:0;width:1.5rem;text-align:right;
+    }
+    .pp-title{font-size:0.8rem;font-weight:400;color:var(--white);line-height:1.45;transition:color 0.3s;margin-bottom:0.3rem}
+    .pp-meta{font-size:0.68rem;color:var(--white-dim)}
+
+    /* tags cloud */
+    .tags-cloud{display:flex;flex-wrap:wrap;gap:0.5rem}
+    .tag-pill{
+      font-size:0.62rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;
+      color:var(--white-dim);border:0.5px solid var(--gold-line);padding:0.3rem 0.8rem;
+      cursor:pointer;transition:border-color 0.3s,color 0.3s;
+    }
+    .tag-pill:hover{border-color:var(--gold);color:var(--gold)}
+
+    /* newsletter */
+    .newsletter-text{font-size:0.82rem;font-weight:300;color:var(--white-dim);line-height:1.7;margin-bottom:1rem}
+    .newsletter-input{
+      width:100%;background:var(--black);border:0.5px solid var(--gold-line);
+      color:var(--white);font-family:'Raleway',sans-serif;font-size:0.8rem;font-weight:300;
+      padding:0.75rem 1rem;outline:none;transition:border-color 0.3s;margin-bottom:0.75rem;
+    }
+    .newsletter-input::placeholder{color:rgba(250,248,243,0.3)}
+    .newsletter-input:focus{border-color:var(--gold)}
+    .btn-gold-full{
+      width:100%;background:var(--gold);color:var(--black);
+      font-family:'Raleway',sans-serif;font-size:0.68rem;font-weight:600;
+      letter-spacing:0.2em;text-transform:uppercase;border:none;
+      padding:0.8rem 1rem;cursor:pointer;transition:background 0.3s;
+    }
+    .btn-gold-full:hover{background:var(--gold-light)}
+
+    /* ─── SINGLE POST PAGE ─── */
+    .post-hero{
+      padding:10rem 0 4rem;border-bottom:0.5px solid var(--gold-line);
+      background:
+        radial-gradient(ellipse 50% 80% at 50% 100%,rgba(201,168,76,0.05) 0%,transparent 60%),
+        var(--black);
+      position:relative;overflow:hidden;
+    }
+    .post-hero-grid{
+      position:absolute;inset:0;
+      background-image:linear-gradient(rgba(201,168,76,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.03) 1px,transparent 1px);
+      background-size:80px 80px;
+      mask-image:radial-gradient(ellipse 80% 70% at 50% 100%,black 0%,transparent 70%);
+    }
+    .post-hero-inner{position:relative;z-index:2;max-width:860px;margin:0 auto;padding:0 4rem;text-align:center}
+    .post-category{
+      font-size:0.62rem;font-weight:600;letter-spacing:0.4em;text-transform:uppercase;
+      color:var(--gold);margin-bottom:1.5rem;display:block;
+    }
+    .post-headline{
+      font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4.5vw,3.5rem);
+      font-weight:300;line-height:1.12;color:var(--white);margin-bottom:1.5rem;
+    }
+    .post-headline em{font-style:italic;color:var(--gold-light)}
+    .post-deck{font-size:1rem;font-weight:300;color:var(--white-dim);line-height:1.8;max-width:680px;margin:0 auto}
+    .post-byline{
+      display:flex;align-items:center;justify-content:center;gap:1.5rem;
+      margin-top:2.5rem;padding-top:2rem;border-top:0.5px solid var(--gold-line);
+    }
+    .post-byline-author{display:flex;align-items:center;gap:0.75rem}
+    .post-divider-dot{color:var(--gold);opacity:0.4}
+
+    /* ─── POST BODY ─── */
+    .post-body-wrap{max-width:1280px;margin:0 auto;padding:5rem 4rem;display:grid;grid-template-columns:1fr 300px;gap:5rem;align-items:start}
+    .post-content{max-width:720px}
+
+    /* TOC sidebar */
+    .toc-block{border-left:0.5px solid var(--gold-line);padding-left:1.5rem;position:sticky;top:120px}
+    .toc-title{font-size:0.62rem;font-weight:600;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem}
+    .toc-link{
+      display:block;font-size:0.78rem;font-weight:300;color:var(--white-dim);
+      padding:0.45rem 0;border-left:2px solid transparent;margin-left:-1.5rem;
+      padding-left:1.25rem;text-decoration:none;transition:color 0.3s,border-color 0.3s;
+    }
+    .toc-link:hover,.toc-link.active{color:var(--gold);border-left-color:var(--gold)}
+
+    /* Article typography */
+    .post-content h2{
+      font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:400;
+      color:var(--white);margin:3rem 0 1rem;line-height:1.2;
+    }
+    .post-content h2 em{font-style:italic;color:var(--gold-light)}
+    .post-content h3{
+      font-family:'Raleway',sans-serif;font-size:1rem;font-weight:600;
+      color:var(--white);letter-spacing:0.05em;text-transform:uppercase;
+      margin:2.5rem 0 0.75rem;
+    }
+    .post-content p{
+      font-family:'Raleway',sans-serif;font-size:0.95rem;font-weight:300;
+      color:var(--white-dim);line-height:1.95;margin-bottom:1.25rem;
+    }
+    .post-content p strong{color:var(--white);font-weight:500}
+    .post-content blockquote{
+      border-left:2px solid var(--gold);padding:1rem 0 1rem 2rem;
+      margin:2rem 0;
+    }
+    .post-content blockquote p{
+      font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:300;
+      font-style:italic;color:var(--white);line-height:1.5;margin:0;
+    }
+    .post-content pre{
+      background:var(--black-3);border:0.5px solid var(--gold-line);
+      padding:1.5rem;margin:2rem 0;overflow-x:auto;
+      font-family:monospace;font-size:0.82rem;color:var(--gold-light);line-height:1.7;
+    }
+    .post-content code{
+      font-family:monospace;font-size:0.85rem;color:var(--gold);
+      background:rgba(201,168,76,0.08);padding:0.15rem 0.4rem;
+    }
+    .post-content ul{list-style:none;margin:1rem 0 1.5rem;padding:0}
+    .post-content ul li{
+      font-size:0.92rem;font-weight:300;color:var(--white-dim);
+      padding:0.4rem 0 0.4rem 1.5rem;position:relative;line-height:1.7;
+    }
+    .post-content ul li::before{
+      content:'';position:absolute;left:0;top:0.85rem;
+      width:5px;height:5px;background:var(--gold);transform:rotate(45deg);
+    }
+    .post-divider{
+      display:flex;align-items:center;gap:1rem;margin:3rem 0;
+    }
+    .post-divider-line{flex:1;height:0.5px;background:var(--gold-line)}
+    .post-divider-diamond{width:6px;height:6px;background:var(--gold);transform:rotate(45deg)}
+
+    /* post tags */
+    .post-tags-row{display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;margin-top:3rem;padding-top:2rem;border-top:0.5px solid var(--gold-line)}
+    .post-tags-label{font-size:0.65rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold)}
+
+    /* share row */
+    .share-row{display:flex;align-items:center;gap:1rem;margin-top:1.5rem}
+    .share-label{font-size:0.65rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--white-dim)}
+    .share-btn{
+      width:34px;height:34px;border:0.5px solid var(--gold-line);
+      display:flex;align-items:center;justify-content:center;cursor:pointer;
+      background:none;transition:border-color 0.3s,background 0.3s;
+    }
+    .share-btn:hover{border-color:var(--gold);background:rgba(201,168,76,0.08)}
+
+    /* author bio card */
+    .author-bio{
+      margin-top:3rem;border:0.5px solid var(--gold-line);padding:2rem;
+      display:flex;gap:1.5rem;align-items:flex-start;
+      background:var(--black-2);
+    }
+    .bio-avatar{
+      width:60px;height:60px;border-radius:50%;
+      background:rgba(201,168,76,0.12);border:0.5px solid var(--gold-line);
+      display:flex;align-items:center;justify-content:center;
+      font-family:'Cormorant SC',serif;font-size:1.1rem;color:var(--gold);font-weight:500;flex-shrink:0;
+    }
+    .bio-name{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:400;color:var(--white);margin-bottom:0.25rem}
+    .bio-title{font-size:0.7rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem}
+    .bio-text{font-size:0.82rem;font-weight:300;color:var(--white-dim);line-height:1.8}
+
+    /* related posts */
+    .related-section{max-width:1280px;margin:0 auto;padding:0 4rem 6rem}
+    .related-header{font-size:0.65rem;font-weight:600;letter-spacing:0.45em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:1rem;margin-bottom:2.5rem}
+    .related-header::before{content:'';width:30px;height:0.5px;background:var(--gold)}
+    .related-header::after{content:'';flex:1;height:0.5px;background:var(--gold-line)}
+    .related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;background:var(--gold-line)}
+
+    /* ─── FOOTER (identical to main site) ─── */
+    footer{background:var(--black);padding:4rem 0 2rem;border-top:0.5px solid var(--gold-line)}
+    .footer-grid{max-width:1280px;margin:0 auto;padding:0 4rem;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:4rem;margin-bottom:4rem}
+    .footer-brand p{font-size:0.8rem;font-weight:300;color:var(--white-dim);line-height:1.8;margin-top:1rem;max-width:280px}
+    .footer-col-title{font-size:0.65rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem}
+    .footer-links{list-style:none;display:flex;flex-direction:column;gap:0.6rem}
+    .footer-links a{font-size:0.8rem;font-weight:300;color:var(--white-dim);text-decoration:none;transition:color 0.3s}
+    .footer-links a:hover{color:var(--gold)}
+    .footer-bottom{max-width:1280px;margin:0 auto;padding:2rem 4rem 0;border-top:0.5px solid var(--gold-line);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+    .footer-copy{font-size:0.72rem;font-weight:300;color:rgba(250,248,243,0.3)}
+    .footer-tagline{font-family:'Cormorant Garamond',serif;font-size:0.85rem;font-style:italic;color:rgba(201,168,76,0.4)}
+
+    /* ─── REVEAL ─── */
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.8s ease,transform 0.8s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+
+    /* ─── TABS (blog/post toggle demo) ─── */
+    .demo-tabs{display:flex;gap:0;border-bottom:0.5px solid var(--gold-line);margin-bottom:3rem;position:sticky;top:0;background:var(--black);z-index:10;padding-top:0.5rem}
+    .demo-tab{
+      font-family:'Raleway',sans-serif;font-size:0.72rem;font-weight:500;letter-spacing:0.2em;
+      text-transform:uppercase;border:none;background:none;cursor:pointer;
+      color:var(--white-dim);padding:0.9rem 1.75rem;
+      border-bottom:2px solid transparent;transition:color 0.3s,border-color 0.3s;
+    }
+    .demo-tab.active{color:var(--gold);border-bottom-color:var(--gold)}
+    .demo-view{display:none}
+    .demo-view.active{display:block}
+
+    /* ─── MOBILE ─── */
+    @media(max-width:900px){
+      nav{padding:1.5rem 2rem}
+      .nav-links{display:none}
+      .blog-main{grid-template-columns:1fr;padding:3rem 2rem}
+      .featured-card{grid-template-columns:1fr}
+      .featured-image{min-height:240px}
+      .articles-grid{grid-template-columns:1fr}
+      .post-body-wrap{grid-template-columns:1fr;padding:3rem 2rem}
+      .related-grid{grid-template-columns:1fr}
+      .post-hero-inner{padding:0 2rem}
+      .related-section{padding:0 2rem 4rem}
+      .footer-grid{grid-template-columns:1fr 1fr;padding:0 2rem;gap:2rem}
+      .footer-bottom{padding:2rem 2rem 0}
+      .filter-inner{padding:0 2rem}
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAVIGATION ─── -->
+<nav>
+  <a href="/" class="nav-logo">
+    <span class="logo-mark">MARAFIS</span>
+    <span class="logo-sub">Technology</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#process">Approach</a></li>
+    <li><a href="#industries">Industries</a></li>
+    <li><a href="#" class="active">Insights</a></li>
+    <li><a href="#cta">Contact</a></li>
+  </ul>
+  <a href="#cta" class="nav-cta">Engage Us</a>
+</nav>
+
+<!-- ─── DEMO SWITCHER ─── -->
+<div style="padding:5rem 4rem 0;max-width:1280px;margin:0 auto">
+  <div class="demo-tabs">
+    <button class="demo-tab active" onclick="switchView('index')">BlogComponent Index</button>
+    <button class="demo-tab" onclick="switchView('post')">Single Post</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     VIEW 1: BLOG INDEX (WordPress: index.php / archive.php)
+═══════════════════════════════════════ -->
+<div id="view-index" class="demo-view active">
+
+  <!-- PAGE HEADER -->
+  <div class="blog-hero">
+    <div class="blog-hero-grid"></div>
+    <!-- corner ornaments -->
+    <svg style="position:absolute;bottom:2rem;right:3rem;opacity:0.2" width="50" height="50" viewBox="0 0 50 50" fill="none">
+      <path d="M50 0 V50 H0" stroke="#C9A84C" stroke-width="0.5"/>
+      <rect x="46" y="46" width="4" height="4" fill="#C9A84C"/>
+    </svg>
+    <div class="blog-hero-inner">
+      <div class="blog-hero-eyebrow">Insights &amp; Perspectives</div>
+      <h1 class="blog-hero-title">Thinking in <em>Systems</em></h1>
+      <p class="blog-hero-sub">Architecture decisions, cloud strategy, and engineering leadership — from the Marafis consultancy.</p>
+    </div>
+  </div>
+
+  <!-- CATEGORY FILTER (WordPress: wp_get_post_categories / custom taxonomy) -->
+  <div class="filter-bar">
+    <div class="filter-inner">
+      <button class="filter-btn active">All</button>
+      <button class="filter-btn">Architecture</button>
+      <button class="filter-btn">Cloud &amp; DevOps</button>
+      <button class="filter-btn">Microservices</button>
+      <button class="filter-btn">AI &amp; Engineering</button>
+      <button class="filter-btn">Leadership</button>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT + SIDEBAR -->
+  <div class="blog-main">
+    <main>
+
+      <!-- FEATURED POST (WordPress: WP_Query sticky / featured tag) -->
+      <div class="featured-label reveal">Featured Article</div>
+      <article class="featured-card reveal" style="transition-delay:0.1s">
+        <div class="featured-image">
+          <div class="featured-image-pattern"></div>
+          <!-- decorative architectural SVG pattern -->
+          <div class="featured-image-svg">
+            <svg width="260" height="260" viewBox="0 0 260 260" fill="none">
+              <circle cx="130" cy="130" r="100" stroke="#C9A84C" stroke-width="0.5"/>
+              <circle cx="130" cy="130" r="70" stroke="#C9A84C" stroke-width="0.5"/>
+              <circle cx="130" cy="130" r="40" stroke="#C9A84C" stroke-width="0.5"/>
+              <circle cx="130" cy="130" r="10" fill="#C9A84C"/>
+              <line x1="130" y1="0" x2="130" y2="260" stroke="#C9A84C" stroke-width="0.5"/>
+              <line x1="0" y1="130" x2="260" y2="130" stroke="#C9A84C" stroke-width="0.5"/>
+              <line x1="30" y1="30" x2="230" y2="230" stroke="#C9A84C" stroke-width="0.5" opacity="0.4"/>
+              <line x1="230" y1="30" x2="30" y2="230" stroke="#C9A84C" stroke-width="0.5" opacity="0.4"/>
+              <rect x="100" y="100" width="60" height="60" stroke="#C9A84C" stroke-width="0.5" opacity="0.5"/>
+            </svg>
+          </div>
+          <span class="featured-image-tag">Architecture</span>
+        </div>
+        <div class="featured-body">
+          <div>
+            <div class="article-meta">
+              <span class="article-date">May 2026</span>
+              <span class="article-dot"></span>
+              <span class="article-read">8 min read</span>
+            </div>
+            <h2 class="featured-title">Why Domain-Driven Design Still Wins — A Decade After the Hype</h2>
+            <p class="featured-excerpt">The concepts Eric Evans codified in 2003 have survived microservices, cloud-native, and AI. Here is why bounded contexts and ubiquitous language remain the most reliable instruments an architect has.</p>
+          </div>
+          <div>
+            <div class="featured-author">
+              <div class="author-avatar">M</div>
+              <div>
+                <div class="author-name">Marafis Consulting</div>
+                <div class="author-role">Principal Architect</div>
+              </div>
+            </div>
+            <a href="#" class="read-link">
+              Read article
+              <svg width="14" height="8" viewBox="0 0 14 8" fill="none">
+                <line x1="0" y1="4" x2="12" y2="4" stroke="#C9A84C" stroke-width="0.75"/>
+                <polyline points="8,1 12,4 8,7" stroke="#C9A84C" stroke-width="0.75" fill="none"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- ARTICLE GRID (WordPress: the_loop) -->
+      <div class="articles-heading reveal">Recent Articles</div>
+      <div class="articles-grid">
+
+        <article class="article-card reveal">
+          <div class="card-tag">Cloud &amp; DevOps</div>
+          <h2 class="article-title">The Hidden Cost of Platform Sprawl in Multi-Cloud Organisations</h2>
+          <p class="article-excerpt">When every team picks their own toolchain, the platform becomes a liability. Here is a framework for regaining coherence without stifling autonomy.</p>
+          <div class="article-footer">
+            <div class="article-meta">
+              <span class="article-date">Apr 2026</span>
+              <span class="article-dot"></span>
+              <span class="article-read">6 min</span>
+            </div>
+            <a href="#" class="card-read-link">Read →</a>
+          </div>
+        </article>
+
+        <article class="article-card reveal" style="transition-delay:0.1s">
+          <div class="card-tag">Microservices</div>
+          <h2 class="article-title">Event Sourcing at Scale: Lessons from Three Production Deployments</h2>
+          <p class="article-excerpt">Event sourcing promises auditability and temporal decoupling. It also brings complexity that most teams underestimate. Practical patterns from the field.</p>
+          <div class="article-footer">
+            <div class="article-meta">
+              <span class="article-date">Mar 2026</span>
+              <span class="article-dot"></span>
+              <span class="article-read">10 min</span>
+            </div>
+            <a href="#" class="card-read-link">Read →</a>
+          </div>
+        </article>
+
+        <article class="article-card reveal" style="transition-delay:0.05s">
+          <div class="card-tag">AI &amp; Engineering</div>
+          <h2 class="article-title">Integrating LLMs into Enterprise Systems Without Compromising Architecture</h2>
+          <p class="article-excerpt">AI integration is not a feature toggle. It demands a rethink of trust boundaries, data contracts, and failure modes. A principled approach.</p>
+          <div class="article-footer">
+            <div class="article-meta">
+              <span class="article-date">Feb 2026</span>
+              <span class="article-dot"></span>
+              <span class="article-read">12 min</span>
+            </div>
+            <a href="#" class="card-read-link">Read →</a>
+          </div>
+        </article>
+
+        <article class="article-card reveal" style="transition-delay:0.15s">
+          <div class="card-tag">Leadership</div>
+          <h2 class="article-title">The Architecture Review That Actually Changes Teams</h2>
+          <p class="article-excerpt">Most architecture reviews produce documents no one reads. A different model — built on psychological safety and decision records — produces lasting change.</p>
+          <div class="article-footer">
+            <div class="article-meta">
+              <span class="article-date">Jan 2026</span>
+              <span class="article-dot"></span>
+              <span class="article-read">7 min</span>
+            </div>
+            <a href="#" class="card-read-link">Read →</a>
+          </div>
+        </article>
+
+        <article class="article-card reveal" style="transition-delay:0.1s">
+          <div class="card-tag">Architecture</div>
+          <h2 class="article-title">Strangler Fig vs Big Bang: Choosing a Modernisation Strategy</h2>
+          <p class="article-excerpt">There is no universal answer, but there is a structured way to reach the right one for your system, team, and risk appetite.</p>
+          <div class="article-footer">
+            <div class="article-meta">
+              <span class="article-date">Dec 2025</span>
+              <span class="article-dot"></span>
+              <span class="article-read">9 min</span>
+            </div>
+            <a href="#" class="card-read-link">Read →</a>
+          </div>
+        </article>
+
+        <article class="article-card reveal" style="transition-delay:0.2s">
+          <div class="card-tag">Cloud &amp; DevOps</div>
+          <h2 class="article-title">Observability Is Not Monitoring: Building Systems That Explain Themselves</h2>
+          <p class="article-excerpt">Logs and metrics tell you something went wrong. Observability tells you why. The shift in thinking that changes how you build and operate software.</p>
+          <div class="article-footer">
+            <div class="article-meta">
+              <span class="article-date">Nov 2025</span>
+              <span class="article-dot"></span>
+              <span class="article-read">8 min</span>
+            </div>
+            <a href="#" class="card-read-link">Read →</a>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- PAGINATION (WordPress: the_posts_pagination) -->
+      <div class="load-more-row reveal">
+        <button class="btn-outline">Load More Articles</button>
+      </div>
+
+    </main>
+
+    <!-- SIDEBAR (WordPress: dynamic_sidebar / widget areas) -->
+    <aside class="sidebar">
+
+      <!-- Search -->
+      <div class="sidebar-block reveal">
+        <div class="sidebar-title">Search</div>
+        <div class="search-wrap">
+          <input class="search-input" type="search" placeholder="Search insights…">
+          <svg class="search-icon" width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <circle cx="5.5" cy="5.5" r="4.5" stroke="#C9A84C" stroke-width="0.75"/>
+            <line x1="9" y1="9" x2="13" y2="13" stroke="#C9A84C" stroke-width="0.75"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Popular Posts -->
+      <div class="sidebar-block reveal" style="transition-delay:0.1s">
+        <div class="sidebar-title">Most Read</div>
+        <div class="popular-post">
+          <span class="pp-num">1</span>
+          <div>
+            <div class="pp-title">Why Domain-Driven Design Still Wins — A Decade After the Hype</div>
+            <div class="pp-meta">May 2026 · 8 min</div>
+          </div>
+        </div>
+        <div class="popular-post">
+          <span class="pp-num">2</span>
+          <div>
+            <div class="pp-title">Integrating LLMs into Enterprise Systems Without Compromising Architecture</div>
+            <div class="pp-meta">Feb 2026 · 12 min</div>
+          </div>
+        </div>
+        <div class="popular-post">
+          <span class="pp-num">3</span>
+          <div>
+            <div class="pp-title">Event Sourcing at Scale: Lessons from Three Production Deployments</div>
+            <div class="pp-meta">Mar 2026 · 10 min</div>
+          </div>
+        </div>
+        <div class="popular-post">
+          <span class="pp-num">4</span>
+          <div>
+            <div class="pp-title">Observability Is Not Monitoring: Building Systems That Explain Themselves</div>
+            <div class="pp-meta">Nov 2025 · 8 min</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Topics -->
+      <div class="sidebar-block reveal" style="transition-delay:0.15s">
+        <div class="sidebar-title">Topics</div>
+        <div class="tags-cloud">
+          <span class="tag-pill">Architecture</span>
+          <span class="tag-pill">Cloud</span>
+          <span class="tag-pill">Microservices</span>
+          <span class="tag-pill">DevOps</span>
+          <span class="tag-pill">AI</span>
+          <span class="tag-pill">DDD</span>
+          <span class="tag-pill">Kafka</span>
+          <span class="tag-pill">Java</span>
+          <span class="tag-pill">AWS</span>
+          <span class="tag-pill">Leadership</span>
+          <span class="tag-pill">Kubernetes</span>
+          <span class="tag-pill">Terraform</span>
+        </div>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="sidebar-block reveal" style="transition-delay:0.2s">
+        <div class="sidebar-title">Newsletter</div>
+        <p class="newsletter-text">Architecture insights delivered monthly. No noise — only thinking that earns your time.</p>
+        <input class="newsletter-input" type="email" placeholder="Your email address">
+        <button class="btn-gold-full">Subscribe</button>
+      </div>
+
+    </aside>
+  </div>
+
+</div><!-- /view-index -->
+
+
+<!-- ══════════════════════════════════════
+     VIEW 2: SINGLE POST (WordPress: single.php)
+═══════════════════════════════════════ -->
+<div id="view-post" class="demo-view">
+
+  <!-- POST HERO -->
+  <div class="post-hero">
+    <div class="post-hero-grid"></div>
+    <div class="post-hero-inner">
+      <span class="post-category">Architecture</span>
+      <h1 class="post-headline">Why Domain-Driven Design Still <em>Wins</em> — A Decade After the Hype</h1>
+      <p class="post-deck">The concepts Eric Evans codified in 2003 have survived microservices, cloud-native, and AI. Here is why bounded contexts and ubiquitous language remain the most reliable instruments an architect has.</p>
+      <div class="post-byline">
+        <div class="post-byline-author">
+          <div class="author-avatar" style="width:38px;height:38px;font-size:0.85rem">M</div>
+          <div>
+            <div class="author-name">Marafis Consulting</div>
+            <div class="author-role">Principal Architect</div>
+          </div>
+        </div>
+        <span class="post-divider-dot">·</span>
+        <span class="article-date">May 2026</span>
+        <span class="post-divider-dot">·</span>
+        <span class="article-read">8 min read</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- POST BODY + TOC SIDEBAR -->
+  <div class="post-body-wrap">
+
+    <article class="post-content reveal">
+
+      <p>There is a pattern I have seen repeat across dozens of engagements. A team starts a microservices migration, carefully decomposes the monolith, wires up their Kafka topics — and six months later, they have distributed a monolith. The services are smaller. The problems are not.</p>
+
+      <p>The cause is almost always the same: <strong>the service boundaries were drawn around technical concerns rather than business ones.</strong> The team optimised for what they could see — database tables, API endpoints — rather than for what matters: the language the business uses and the workflows it actually cares about.</p>
+
+      <div class="post-divider"><div class="post-divider-line"></div><div class="post-divider-diamond"></div><div class="post-divider-line"></div></div>
+
+      <h2>The Problem with <em>Technical Decomposition</em></h2>
+
+      <p>When engineers decompose a system, the natural instinct is to look at the data model. A <code>Customer</code> table becomes a Customer Service. An <code>Order</code> table becomes an Order Service. It feels logical. It mirrors what the codebase already does.</p>
+
+      <p>But the business does not think this way. In e-commerce, a "customer" means something different to the marketing team, the fulfilment team, and the fraud detection team. They use the same word and mean entirely different things — different attributes, different behaviours, different lifecycles.</p>
+
+      <blockquote>
+        <p>The greatest risk in a microservices migration is not technical. It is conceptual: building boundaries that reflect the system you have, not the domain you serve.</p>
+      </blockquote>
+
+      <h2>Bounded Contexts as <em>First Principles</em></h2>
+
+      <p>Eric Evans' insight was that large domains are inherently ambiguous — and that is not a problem to solve but a reality to design with. A bounded context is a linguistic boundary: within it, every term has a single, precise meaning. Across boundaries, terms may differ. The context makes meaning explicit.</p>
+
+      <p>In practice, this means three things for architecture:</p>
+
+      <ul>
+        <li>Service boundaries are drawn around <strong>language consistency</strong>, not data proximity</li>
+        <li>Integration between contexts is explicit, versioned, and owned — not implicit shared tables</li>
+        <li>The domain model inside each context is free to evolve without cascading changes</li>
+      </ul>
+
+      <h3>Identifying Your Bounded Contexts</h3>
+
+      <p>The most reliable technique I have used is <strong>event storming</strong> — a collaborative modelling session where domain events are placed on a timeline and patterns of ownership emerge naturally. When the language shifts, when different teams refer to the same concept differently, you have found a context boundary.</p>
+
+      <pre><code>// Two contexts — same concept, different models
+
+// Billing context
+class Customer {
+        BillingId id;
+        PaymentMethod defaultPayment;
+        CreditLimit limit;
+}
+
+// Fulfilment context
+class Customer {
+        FulfilmentId id;
+        ShippingAddress[] addresses;
+        DeliveryPreferences preferences;
+}</code></pre>
+
+      <h2>Ubiquitous Language: The <em>Underrated</em> Half</h2>
+
+      <p>Domain experts and engineers rarely speak the same language. Engineers abstract; domain experts contextualise. The result is a translation layer that lives in every developer's head — invisible, inconsistent, and fragile.</p>
+
+      <p>Ubiquitous language eliminates that layer. When the code says <code>PolicyRenewal</code>, not <code>ContractUpdate</code>, the domain expert can read the code. When the domain expert says "lapse", the engineer knows exactly which class and event that maps to.</p>
+
+      <p>This is not cosmetic. It eliminates an entire class of requirement misunderstandings — the kind that surface in production six months after a feature was built.</p>
+
+      <div class="post-divider"><div class="post-divider-line"></div><div class="post-divider-diamond"></div><div class="post-divider-line"></div></div>
+
+      <h2>What Has Changed — and What Has <em>Not</em></h2>
+
+      <p>The tooling has changed dramatically since 2003. We have Kubernetes, Kafka, service meshes, and AI-assisted coding. None of this changes the underlying problem DDD addresses: <strong>software that fails to model its domain accurately will rot</strong>, regardless of the infrastructure it runs on.</p>
+
+      <p>If anything, the stakes are higher now. In a microservices architecture, a poorly drawn boundary is not a naming problem — it is a distributed systems coupling problem. Every inter-service call across an incorrect boundary is a future incident.</p>
+
+      <!-- Tags -->
+      <div class="post-tags-row">
+        <span class="post-tags-label">Topics</span>
+        <span class="tag-pill">Architecture</span>
+        <span class="tag-pill">DDD</span>
+        <span class="tag-pill">Microservices</span>
+        <span class="tag-pill">Java</span>
+        <span class="tag-pill">Design</span>
+      </div>
+
+      <!-- Share -->
+      <div class="share-row" style="margin-top:1.5rem">
+        <span class="share-label">Share</span>
+        <button class="share-btn" title="LinkedIn">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <rect x="1" y="1" width="12" height="12" stroke="#C9A84C" stroke-width="0.75"/>
+            <line x1="4" y1="6" x2="4" y2="11" stroke="#C9A84C" stroke-width="0.75"/>
+            <circle cx="4" cy="4" r="0.75" fill="#C9A84C"/>
+            <path d="M7 6 V11 M7 8 C7 6 11 6 11 8 V11" stroke="#C9A84C" stroke-width="0.75"/>
+          </svg>
+        </button>
+        <button class="share-btn" title="X / Twitter">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <line x1="2" y1="2" x2="12" y2="12" stroke="#C9A84C" stroke-width="0.75"/>
+            <line x1="12" y1="2" x2="2" y2="12" stroke="#C9A84C" stroke-width="0.75"/>
+          </svg>
+        </button>
+        <button class="share-btn" title="Copy link">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M5 9 L2 12 M5 9 C3 7 3 4 5 2 L7 1 C9 0 11 1 12 3 C13 5 12 7 10 8 L8 9" stroke="#C9A84C" stroke-width="0.75" fill="none"/>
+            <path d="M9 5 L12 2 M9 5 C11 7 11 10 9 12 L7 13 C5 14 3 13 2 11 C1 9 2 7 4 6 L6 5" stroke="#C9A84C" stroke-width="0.75" fill="none" opacity="0.5"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Author Bio -->
+      <div class="author-bio">
+        <div class="bio-avatar">M</div>
+        <div>
+          <div class="bio-name">Marafis Technology Consultancy</div>
+          <div class="bio-title">Principal Architect &amp; Founder</div>
+          <p class="bio-text">20+ years designing scalable systems across finance, insurance, e-commerce, and telecoms. Specialist in solution architecture, cloud transformation, and engineering leadership.</p>
+        </div>
+      </div>
+
+    </article>
+
+    <!-- TOC / STICKY SIDEBAR -->
+    <aside class="toc-block reveal" style="transition-delay:0.2s">
+      <div class="toc-title">In This Article</div>
+      <a href="#" class="toc-link active">Introduction</a>
+      <a href="#" class="toc-link">The problem with technical decomposition</a>
+      <a href="#" class="toc-link">Bounded contexts as first principles</a>
+      <a href="#" class="toc-link">Identifying your bounded contexts</a>
+      <a href="#" class="toc-link">Ubiquitous language</a>
+      <a href="#" class="toc-link">What has changed — and what has not</a>
+
+      <div style="margin-top:2.5rem;padding-top:1.5rem;border-top:0.5px solid var(--gold-line)">
+        <div class="toc-title">Newsletter</div>
+        <p style="font-size:0.78rem;font-weight:300;color:var(--white-dim);line-height:1.7;margin-bottom:1rem">Monthly architecture insights. No noise.</p>
+        <input class="newsletter-input" type="email" placeholder="Your email" style="font-size:0.75rem;padding:0.6rem 0.9rem">
+        <button class="btn-gold-full" style="font-size:0.62rem;padding:0.7rem">Subscribe</button>
+      </div>
+    </aside>
+
+  </div><!-- /post-body-wrap -->
+
+  <!-- RELATED POSTS (WordPress: related posts plugin / WP_Query by category) -->
+  <div class="related-section">
+    <div class="related-header">More from Insights</div>
+    <div class="related-grid">
+      <article class="article-card reveal">
+        <div class="card-tag">Microservices</div>
+        <h2 class="article-title">Event Sourcing at Scale: Lessons from Three Production Deployments</h2>
+        <p class="article-excerpt">Practical patterns and hard-won lessons from real event-sourced systems in production across financial services.</p>
+        <div class="article-footer">
+          <div class="article-meta"><span class="article-date">Mar 2026</span><span class="article-dot"></span><span class="article-read">10 min</span></div>
+          <a href="#" class="card-read-link">Read →</a>
+        </div>
+      </article>
+      <article class="article-card reveal" style="transition-delay:0.1s">
+        <div class="card-tag">Architecture</div>
+        <h2 class="article-title">Strangler Fig vs Big Bang: Choosing a Modernisation Strategy</h2>
+        <p class="article-excerpt">A structured framework for selecting the right migration approach based on system complexity, team capacity, and business risk tolerance.</p>
+        <div class="article-footer">
+          <div class="article-meta"><span class="article-date">Dec 2025</span><span class="article-dot"></span><span class="article-read">9 min</span></div>
+          <a href="#" class="card-read-link">Read →</a>
+        </div>
+      </article>
+      <article class="article-card reveal" style="transition-delay:0.2s">
+        <div class="card-tag">AI &amp; Engineering</div>
+        <h2 class="article-title">Integrating LLMs into Enterprise Systems Without Compromising Architecture</h2>
+        <p class="article-excerpt">AI integration demands a rethink of trust boundaries, data contracts, and failure modes. A principled approach for enterprise engineers.</p>
+        <div class="article-footer">
+          <div class="article-meta"><span class="article-date">Feb 2026</span><span class="article-dot"></span><span class="article-read">12 min</span></div>
+          <a href="#" class="card-read-link">Read →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+
+</div><!-- /view-post -->
+
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="/" class="nav-logo" style="text-decoration:none">
+        <span class="logo-mark">MARAFIS</span>
+        <span class="logo-sub" style="margin-top:3px">Technology Consultancy</span>
+      </a>
+      <p>Precision-crafted technology solutions for enterprises that demand excellence. Architecture, cloud, and digital transformation — delivered with rigour and care.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="#">Solution Architecture</a></li>
+        <li><a href="#">Cloud Transformation</a></li>
+        <li><a href="#">Microservices Design</a></li>
+        <li><a href="#">Digital Modernisation</a></li>
+        <li><a href="#">DevOps Engineering</a></li>
+        <li><a href="#">AI Integration</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Insights</div>
+      <ul class="footer-links">
+        <li><a href="#">Architecture</a></li>
+        <li><a href="#">Cloud &amp; DevOps</a></li>
+        <li><a href="#">Microservices</a></li>
+        <li><a href="#">AI &amp; Engineering</a></li>
+        <li><a href="#">Leadership</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Connect</div>
+      <ul class="footer-links">
+        <li><a href="mailto:hello@marafis.com">hello@marafis.com</a></li>
+        <li><a href="https://marafis.com">www.marafis.com</a></li>
+        <li><a href="#">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">&copy; 2026 Marafis Technology Consultancy. All rights reserved.</span>
+    <span class="footer-tagline">Engineered with precision. Delivered with integrity.</span>
+  </div>
+</footer>
+
+<script>
+  // ─── DEMO VIEW SWITCHER ───
+  function switchView(name){
+    document.querySelectorAll('.demo-tab').forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.demo-view').forEach(v=>v.classList.remove('active'));
+    document.getElementById('view-'+name).classList.add('active');
+    event.target.classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+    // Re-trigger reveals for new view
+    setTimeout(()=>{ reveals.forEach(el=>{const r=el.getBoundingClientRect();if(r.top<window.innerHeight*0.92)el.classList.add('visible')}); },100);
+  }
+
+  // ─── CATEGORY FILTER ───
+  document.querySelectorAll('.filter-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+
+  // ─── SCROLL REVEAL ───
+  const reveals=document.querySelectorAll('.reveal');
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
+  },{threshold:0.1,rootMargin:'0px 0px -30px 0px'});
+  reveals.forEach(el=>obs.observe(el));
+
+  // ─── TOC ACTIVE STATE (simulated) ───
+  document.querySelectorAll('.toc-link').forEach(link=>{
+    link.addEventListener('click',e=>{
+      e.preventDefault();
+      document.querySelectorAll('.toc-link').forEach(l=>l.classList.remove('active'));
+      link.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>

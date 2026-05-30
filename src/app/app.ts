@@ -5,13 +5,9 @@ import { FooterComponent } from '@layout/footer/footer.component';
 @Component({
   selector: 'mrf-root',
   standalone: true,
-  imports: [RouterOutlet, NavbarComponent, FooterComponent, FooterComponent],
+  imports: [RouterOutlet, NavbarComponent, FooterComponent],
   templateUrl: './app.html',
-  styles: [`
-    main {
-      min-height: 100vh;
-    }
-  `],
+  styles: [`main { min-height: 100vh; }`],
 })
 export class AppComponent {}
 
